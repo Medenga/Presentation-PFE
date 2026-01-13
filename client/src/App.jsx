@@ -11,10 +11,12 @@ import Slide5 from './slides/Slide5';
 import Slide6 from './slides/Slide6';
 // Note: Slide7 correspond souvent à la conclusion si tu en as une, sinon s'arrête à 6.
 import Slide7 from './slides/Slide7'; 
+import Slide8_3 from './slides/Slide8_3';
+import Slide9_4 from './slides/Slide9_4';
 import Simulation from './slides/Simulation';
 import NavigationControls from './components/NavigationControls';
 
-const slides = ["/", "/slide2", "/slide3", "/slide4", "/slide5", "/slide6", "/slide7"];
+const slides = ["/", "/slide2", "/slide8_3", "/slide9_4", "/slide3", "/slide4", "/slide5", "/slide6", "/slide7"];
 
 // --- COMPOSANT DE MISE À L'ÉCHELLE (Anti-coupure) ---
 const ScaleWrapper = ({ children }) => {
@@ -100,6 +102,8 @@ const AppContent = () => {
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Slide1 />} />
           <Route path="/slide2" element={<Slide2 />} />
+          <Route path="/slide8_3" element={<Slide8_3 />} />
+          <Route path="/slide9_4" element={<Slide9_4 />} />
           <Route path="/slide3" element={<Slide3 />} />
           <Route path="/slide4" element={<Slide4 />} />
           <Route path="/slide5" element={<Slide5 />} />
