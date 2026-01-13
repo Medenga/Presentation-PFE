@@ -1,0 +1,150 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { 
+  GraduationCap, 
+  Server, 
+  Database, 
+  Brain, 
+  Flag
+} from 'lucide-react';
+
+const Slide3 = () => {
+  return (
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="relative w-[1280px] h-[720px] bg-[#0d0d0d] text-white flex flex-col p-[60px_80px] overflow-hidden font-urbanist"
+    >
+      {/* HEADER */}
+      <div className="flex justify-between items-center z-10 w-full mb-8">
+        <div className="h-[50px] bg-white/[0.05] border border-white/10 rounded-lg px-5 flex items-center backdrop-blur-md">
+          <div className="flex items-center gap-2 font-extrabold text-[14px] tracking-widest uppercase text-white">
+            <GraduationCap size={18} />
+            <span>ECE PARIS</span>
+          </div>
+        </div>
+        <div className="h-[50px] bg-white rounded-lg px-5 flex items-center shadow-lg">
+          <img 
+            src="https://upload.wikimedia.org/wikipedia/commons/3/34/EY_logo_2019.svg" 
+            alt="EY" 
+            className="h-[35px]" 
+          />
+        </div>
+      </div>
+
+      {/* TITLE BLOCK */}
+      <div className="mb-10 border-l-4 border-[#FFE600] pl-6">
+        <div className="text-[#FFE600] text-[13px] font-bold tracking-[4px] uppercase mb-1">Protocole Expérimental</div>
+        <h1 className="text-[40px] font-light uppercase">
+          De la <span className="font-bold">Simulation</span> à la <span className="font-bold text-[#FFE600]">Validation Prédictive</span>
+        </h1>
+      </div>
+
+      {/* WORKFLOW CONTAINER */}
+      <div className="grid grid-cols-4 gap-4  items-stretch">
+        
+        {/* STEP 01 */}
+        <StepCard 
+          number="01" 
+          title="Génération" 
+          icon={<Server size={20} strokeWidth={0.5} />}
+          items={[
+            { label: "SUT", val: "Google Online Boutique" },
+            { label: "Charge", val: "Locust (50-300 users)" },
+            { label: "Chaos", val: "Pumba (Latence, CPU)" }
+          ]}
+          hTitle="Scénario"
+          hValue="Nominal vs Panne"
+        />
+
+        {/* STEP 02 */}
+        <StepCard 
+          number="02" 
+          title="Acquisition" 
+          icon={<Database size={20} strokeWidth={0.5} />}
+          items={[
+            { label: "Collecte", val: "Prometheus (Scrape 5s)" },
+            { label: "Métriques", val: "Système + App" },
+            { label: "Label", val: "0 (Sain) / 1 (Anomalie)" }
+          ]}
+          hTitle="Dataset"
+          hValue="Maint. Prédictive"
+        />
+
+        {/* STEP 03 */}
+        <StepCard 
+          number="03" 
+          title="Modélisation" 
+          icon={<Brain size={20} strokeWidth={0.5}/>}
+          items={[
+            { label: "Preproc.", val: "Nettoyage & Norm." },
+            { label: "Split", val: "70/15/15 (Train/Val/Test)" },
+            { label: "Modèles", val: "RF / LSTM / AE" }
+          ]}
+          hTitle="Comparaison"
+          hValue="3 Architectures"
+        />
+
+        {/* STEP 04 */}
+        <StepCard 
+          number="04" 
+          title="Validation" 
+          icon={<Flag size={20} strokeWidth={0.5} />}
+          items={[
+            { label: "Perf", val: "Score F1 > 0.8" },
+            { label: "Ops", val: "Lead Time > 2 min" },
+            { label: "Fiab.", val: "Minimiser Faux Pos." }
+          ]}
+          hTitle="Objectif"
+          hValue="Preuve de Valeur"
+        />
+
+      </div>
+
+      {/* FOOTER HUD */}
+      <div className="mt-auto pt-4 border-t border-white/5 flex justify-between items-center opacity-50">
+        <div className="text-[10px] font-extrabold uppercase tracking-[2px]">Experimental Methodology & Tools</div>
+        <div className="text-[10px] font-extrabold uppercase tracking-[2px] text-[#FFE600]">03 / 06</div>
+      </div>
+    </motion.div>
+  );
+};
+
+/* --- COMPOSANT INTERNE : CARTE D'ÉTAPE --- */
+
+const StepCard = ({ number, title, icon, items, hTitle, hValue }) => (
+  <div className="bg-white/[0.03] border border-white/10 p-6 rounded-[16px] flex flex-col backdrop-blur-sm relative group hover:border-[#FFE600]/30 transition-all">
+    {/* Card Header */}
+    <div className="flex justify-between items-center mb-6">
+      <div className="w-10 h-10 bg-[#FFE600]/10 rounded-lg flex items-center justify-center text-[#FFE600]">
+        {icon}
+      </div>
+      <span className="text-[24px] font-black text-white/10 group-hover:text-[#FFE600]/20 transition-colors">
+        {number}
+      </span>
+    </div>
+
+    <h3 className="text-[18px] font-bold uppercase tracking-tight mb-4 text-white">
+      {title}
+    </h3>
+
+    {/* List Content */}
+    <ul className="space-y-3 mb-6 flex-grow">
+      {items.map((item, i) => (
+        <li key={i} className="text-[12px] leading-tight">
+          <strong className="text-[#FFE600] font-black uppercase tracking-tighter mr-1">{item.label} :</strong>
+          <span className="text-gray-400">{item.val}</span>
+        </li>
+      ))}
+    </ul>
+
+    {/* Highlight Box */}
+    <div className="mt-auto bg-white/[0.04] border border-white/5 p-3 rounded-xl text-center">
+      <div className="text-[9px] font-black uppercase tracking-widest text-white/30 mb-1">{hTitle}</div>
+      <div className="text-[12px] font-bold text-[#FFE600] uppercase italic">{hValue}</div>
+    </div>
+  </div>
+);
+
+export default Slide3;

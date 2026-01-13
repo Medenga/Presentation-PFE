@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-ey-yellow: #FFE600;
+  --font-urbanist: "Urbanist", sans-serif;
+}
+
+/* Styles de base pour forcer le rendu sombre */
+:root {
+  background-color: #0d0d0d;
+}
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Empêche le scroll parasite */
+  background-color: black;
+}
+body {
+  margin: 0;
+  background-color: #0d0d0d;
+  color: white;
+  font-family: 'Urbanist', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}

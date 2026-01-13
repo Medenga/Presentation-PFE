@@ -1,0 +1,11 @@
+# Dépendances
+client/node_modules/
+
+# Fichier de verrouillage (Déconseillé mais possible)
+client/package-lock.json
+
+# Dépendances
+node_modules/
+
+# Fichier de verrouillage (Déconseillé mais possible)
+package-lock.json
