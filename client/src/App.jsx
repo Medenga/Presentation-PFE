@@ -13,10 +13,11 @@ import Slide6 from './slides/Slide6';
 import Slide7 from './slides/Slide7'; 
 import Slide8_3 from './slides/Slide8_3';
 import Slide9_4 from './slides/Slide9_4';
+import Slide10_5 from './slides/Slide10_5';
 import Simulation from './slides/Simulation';
 import NavigationControls from './components/NavigationControls';
 
-const slides = ["/", "/slide2", "/slide8_3", "/slide9_4", "/slide3", "/slide4", "/slide5", "/slide6", "/slide7"];
+const slides = ["/", "/slide2", "/slide8_3", "/slide9_4", "/slide3", "/slide4", "/slide5", "/slide10_5", "/slide6", "/slide7"];
 
 // --- COMPOSANT DE MISE À L'ÉCHELLE (Anti-coupure) ---
 const ScaleWrapper = ({ children }) => {
@@ -107,6 +108,7 @@ const AppContent = () => {
           <Route path="/slide3" element={<Slide3 />} />
           <Route path="/slide4" element={<Slide4 />} />
           <Route path="/slide5" element={<Slide5 />} />
+          <Route path="/slide10_5" element={<Slide10_5 />} />
           <Route path="/slide6" element={<Slide6 />} />
           <Route path="/slide7" element={<Slide7 />} />
           <Route path="/simulation" element={<Simulation />} />
