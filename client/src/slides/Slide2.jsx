@@ -1,4 +1,4 @@
-import React from 'react';
+ import React from 'react';
 import { motion } from 'framer-motion';
 import { History, Zap, Search, GraduationCap, ArrowRight } from 'lucide-react';
 
@@ -63,10 +63,15 @@ const Slide2 = () => {
         </motion.div>
       </div>
 
-      {/* FOOTER HUD */}
-      <div className="mt-auto pt-4 border-t border-white/[0.08] flex justify-between items-center z-10 opacity-60">
-        <div className="text-[12px] font-extrabold uppercase tracking-[2px]">Project Context</div>
-        <div className="text-[12px] font-extrabold uppercase tracking-[2px] text-[#FFE600]">02 / 06</div>
+      {/* FOOTER */}
+      {/* FOOTER HUD - Version Fixe avec Absolute */}
+      <div className="absolute bottom-0 left-0 w-full px-20 pb-10 z-20">
+        <div className="pt-4 border-t border-slate-200 flex justify-between items-center text-[10px] font-extrabold uppercase tracking-widest">
+          <div className="text-white">Numéro d'équipe: #PFE25-R-474</div>
+          <div className="text-white text-xs font-black">
+            02 <span className="text-ey-yellow">/</span> 10
+          </div>
+        </div>
       </div>
     </motion.div>
   );

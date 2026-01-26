@@ -2,6 +2,7 @@
 @import "tailwindcss";
 
 @theme {
+  --color-pres-grey: #313033;
   --color-ey-yellow: #FFE600;
   --font-urbanist: "Urbanist", sans-serif;
 }

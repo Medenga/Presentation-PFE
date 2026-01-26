@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         'ey-yellow': '#FFE600',
+        'pres-grey': '#313033',
       },
       fontFamily: {
         urbanist: ['Urbanist', 'sans-serif'],

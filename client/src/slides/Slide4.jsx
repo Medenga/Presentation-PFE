@@ -1,154 +1,95 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { 
-  GraduationCap, 
-  Store, 
-  Microchip, 
-  Cpu, 
-  Globe, 
-  Layers, 
-  Mail, // Remplacé Envelope par Mail
-  Brain, 
-  FileText, 
-  TriangleAlert 
-} from 'lucide-react';
+import { Microscope, Hourglass, Target, Zap, GraduationCap } from 'lucide-react';
 
 const Slide4 = () => {
   return (
     <motion.div 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="relative w-[1280px] h-[720px] bg-[#0d0d0d] text-white flex flex-col p-[60px_80px] overflow-hidden font-urbanist"
+      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+      className="relative w-[1280px] h-[720px] bg-[#0d0d0d] text-white flex flex-col p-[40px_80px] overflow-hidden font-urbanist"
     >
-      {/* HEADER */}
-      <div className="flex justify-between items-center z-10 w-full mb-8">
+      {/* HEADER HUD */}
+      <div className="flex justify-between items-center z-10 w-full mb-6">
         <div className="h-[50px] bg-white/[0.05] border border-white/10 rounded-lg px-5 flex items-center backdrop-blur-md">
-          <div className="flex items-center gap-2 font-extrabold text-[14px] tracking-widest uppercase text-white">
-            <GraduationCap size={18} />
+          <div className="flex items-center gap-2 font-extrabold text-[14px] tracking-widest uppercase">
+            <GraduationCap size={18} className="text-[#FFE600]" />
             <span>ECE PARIS</span>
           </div>
         </div>
         <div className="h-[50px] bg-white rounded-lg px-5 flex items-center shadow-lg">
-          <img 
-            src="https://upload.wikimedia.org/wikipedia/commons/3/34/EY_logo_2019.svg" 
-            alt="EY" 
-            className="h-[35px]" 
-          />
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/EY_logo_2019.svg" alt="EY" className="h-[35px]" />
         </div>
       </div>
 
-      {/* TITLE BLOCK */}
-      <div className="mb-12 border-l-4 border-[#FFE600] pl-6">
-        <div className="text-[#FFE600] text-[13px] font-bold tracking-[4px] uppercase mb-1">Architecture Technique</div>
-        <h1 className="text-[40px] font-light uppercase text-white">
-          Flux d'<span className="font-bold text-[#FFE600]">Analyse Prédictive</span>
-        </h1>
+      <div className="flex-grow flex flex-col justify-center">
+        {/* PROBLÉMATIQUE CENTRALE */}
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center gap-2 bg-[#FFE600]/10 border border-[#FFE600]/30 text-[#FFE600] px-4 py-1 rounded-full text-[12px] font-black uppercase tracking-[3px] mb-4">
+            <Microscope size={14} /> Question de Recherche
+          </div>
+          <h3 className="text-[32px] font-light italic leading-tight max-w-4xl mx-auto text-white/90">
+            Comment transformer cet audit statique en un système capable d'anticiper les défaillances avant qu'elles ne soient perçues par l'utilisateur ? 
+          </h3>
+        </div>
+
+        {/* HYPOTHÈSES KPI CARDS */}
+        <div className="grid grid-cols-2 gap-8 max-w-5xl mx-auto w-full">
+          {/* H1: LEAD TIME */}
+          <motion.div 
+            whileHover={{ y: -5 }}
+            className="bg-white/[0.03] border border-white/10 p-8 rounded-[32px] relative overflow-hidden group"
+          >
+            <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+              <Hourglass size={80} />
+            </div>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="bg-[#FFE600] p-2 rounded-lg text-black font-bold text-[14px]">H1</div>
+              <h4 className="text-[18px] font-bold uppercase tracking-widest text-gray-400">Lead Time</h4>
+            </div>
+            <div className="flex items-baseline gap-2 mb-2">
+              <span className="text-[72px] font-black text-[#FFE600] leading-none">&gt; 2</span>
+              <span className="text-[24px] font-bold text-[#FFE600]">minutes</span>
+            </div>
+            <p className="text-[17px] text-gray-300 leading-relaxed max-w-[300px]">
+              Délai d'anticipation nécessaire pour une <b>auto-remédiation</b> ou une <b>intervention humaine</b>.
+            </p>
+          </motion.div>
+
+          {/* H2: PRÉCISION */}
+          <motion.div 
+            whileHover={{ y: -5 }}
+            className="bg-white/[0.03] border border-white/10 p-8 rounded-[32px] relative overflow-hidden group"
+          >
+            <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
+              <Target size={80} />
+            </div>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="bg-[#FFE600] p-2 rounded-lg text-black font-bold text-[14px]">H2</div>
+              <h4 className="text-[18px] font-bold uppercase tracking-widest text-gray-400">Précision</h4>
+            </div>
+            <div className="flex items-baseline gap-2 mb-2">
+              <span className="text-[72px] font-black text-[#FFE600] leading-none">&gt; 85</span>
+              <span className="text-[24px] font-bold text-[#FFE600]">%</span>
+            </div>
+            <p className="text-[17px] text-gray-300 leading-relaxed max-w-[320px]">
+              Fusion des métriques <b>Système</b> et <b>Applicatives</b> pour réduire drastiquement les faux positifs.
+            </p>
+          </motion.div>
+        </div>
       </div>
 
-      {/* DIAGRAM CONTAINER */}
-      <div className="flex justify-between items-stretch flex-grow gap-4 py-4">
-        
-        {/* STEP 1: SOURCE */}
-        <StepBox title="Source" subtitle="Google Online Boutique" icon={<Store size={20} />}>
-          <MetricRow label="CPU" value="45%" icon={<Cpu size={12}/>} color="text-green-400" />
-          <MetricRow label="RAM" value="78%" icon={<Microchip size={12}/>} color="text-orange-400" />
-          <MetricRow label="HTTP" value="200 OK" icon={<Globe size={12}/>} color="text-green-400" />
-          <TechPill label="Microservices" />
-        </StepBox>
-
-        <FlowArrow label="Extraction" />
-
-        {/* STEP 2: TRANSPORT */}
-        <StepBox title="Transport" subtitle="Pipeline de Données" icon={<Layers size={20} className="text-red-500" />}>
-          <div className="flex gap-2 mb-4 opacity-40 text-white">
-            <Mail size={14} /><Mail size={14} /><Mail size={14} />
+      {/* FOOTER */}
+      {/* FOOTER HUD - Version Fixe avec Absolute */}
+      <div className="absolute bottom-0 left-0 w-full px-20 pb-10 z-20">
+        <div className="pt-4 border-t border-slate-200 flex justify-between items-center text-[10px] font-extrabold uppercase tracking-widest">
+          <div className="text-white">Numéro d'équipe: #PFE25-R-474</div>
+          <div className="text-white text-xs font-black">
+            04 <span className="text-ey-yellow">/</span> 10
           </div>
-          <p className="text-[10px] text-gray-400 leading-relaxed">
-            File d'attente asynchrone pour absorber les pics de charge.
-          </p>
-          <TechPill label="RabbitMQ" color="border-red-500 text-red-500" />
-        </StepBox>
-
-        <FlowArrow label="Streaming" />
-
-        {/* STEP 3: ANALYSE */}
-        <StepBox 
-          title="Analyse" 
-          subtitle="Moteur Prédictif" 
-          icon={<Brain size={20} />} 
-          borderColor="border-[#FFE600]/30"
-        >
-          <MetricRow label="Modèle" value="Séries Temp." />
-          <MetricRow label="Statut" value="Calcul..." color="text-[#FFE600]" />
-          <p className="text-[10px] text-gray-400 mt-1 italic">Détection de saturation</p>
-          <TechPill label="Python / ML" />
-        </StepBox>
-
-        <FlowArrow label="Alerte" />
-
-        {/* STEP 4: RESULTAT */}
-        <StepBox title="Résultat" subtitle="Audit Final" icon={<FileText size={20} className="text-red-500" />}>
-          <div className="flex justify-between items-center p-2 bg-red-500/10 border border-red-500/30 rounded mb-2">
-            <span className="text-[10px] text-red-500 flex items-center gap-1 font-bold italic uppercase">
-              <TriangleAlert size={10} /> Risque
-            </span>
-            <span className="text-[10px] font-bold text-white uppercase tracking-tighter">Élevé</span>
-          </div>
-          <p className="text-[10px] text-gray-400 leading-relaxed">
-            Génération du rapport et recommandations.
-          </p>
-          <TechPill label="PDF Report" color="border-red-500 text-red-500" />
-        </StepBox>
-
-      </div>
-
-      {/* FOOTER HUD */}
-      <div className="mt-auto pt-4 border-t border-white/5 flex justify-between items-center opacity-50">
-        <div className="text-[10px] font-extrabold uppercase tracking-[2px] text-white/60">Data Flow & System Architecture</div>
-        <div className="text-[10px] font-extrabold uppercase tracking-[2px] text-[#FFE600]">04 / 06</div>
+        </div>
       </div>
     </motion.div>
   );
 };
-
-/* --- COMPOSANTS INTERNES --- */
-
-const StepBox = ({ title, subtitle, icon, children, borderColor = "border-white/10" }) => (
-  <div className={`flex-1 bg-white/[0.03] border ${borderColor} p-5 rounded-xl flex flex-col backdrop-blur-sm relative min-w-0`}>
-    <div className="mb-4 text-white/80">{icon}</div>
-    <div className="text-[14px] font-extrabold uppercase tracking-tight text-white mb-0.5 whitespace-nowrap overflow-hidden text-ellipsis">{title}</div>
-    <div className="text-[11px] text-[#FFE600] font-medium mb-4 whitespace-nowrap overflow-hidden text-ellipsis">{subtitle}</div>
-    {children}
-  </div>
-);
-
-const MetricRow = ({ label, value, icon, color = "text-white" }) => (
-  <div className="flex justify-between items-center text-[10px] mb-2 border-b border-white/5 pb-1">
-    <span className="flex items-center gap-1.5 text-gray-400">
-      {icon} {label}
-    </span>
-    <span className={`font-bold uppercase ${color}`}>{value}</span>
-  </div>
-);
-
-const TechPill = ({ label, color = "border-white/20 text-gray-300" }) => (
-  <div className="mt-auto pt-4">
-    <span className={`text-[9px] font-black px-2 py-0.5 rounded border uppercase tracking-widest ${color}`}>
-      {label}
-    </span>
-  </div>
-);
-
-const FlowArrow = ({ label }) => (
-  <div className="flex flex-col justify-center items-center px-1">
-    <span className="text-[8px] font-black uppercase text-[#FFE600] mb-2 tracking-widest rotate-[-90deg] translate-y-[-10px] whitespace-nowrap">
-      {label}
-    </span>
-    <div className="h-[100px] w-px bg-gradient-to-b from-transparent via-[#FFE600]/40 to-transparent relative">
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 border-t-[5px] border-t-[#FFE600]/40 border-x-[4px] border-x-transparent" />
-    </div>
-  </div>
-);
 
 export default Slide4;
