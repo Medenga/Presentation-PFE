@@ -1,91 +1,64 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Microscope, Hourglass, Target, Zap, GraduationCap } from 'lucide-react';
+import { Microscope, Hourglass, Target } from 'lucide-react';
 
 const Slide4 = () => {
   return (
-    <motion.div 
-      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-      className="relative w-[1280px] h-[720px] bg-[#0d0d0d] text-white flex flex-col p-[40px_80px] overflow-hidden font-urbanist"
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="relative w-[1280px] h-[720px] bg-pres-grey text-white flex flex-col px-20 pt-12 pb-24 overflow-hidden font-sans"
     >
-      {/* HEADER HUD */}
-      <div className="flex justify-between items-center z-10 w-full mb-6">
-        <div className="h-[50px] bg-white/[0.05] border border-white/10 rounded-lg px-5 flex items-center backdrop-blur-md">
-          <div className="flex items-center gap-2 font-extrabold text-[14px] tracking-widest uppercase">
-            <GraduationCap size={18} className="text-[#FFE600]" />
-            <span>ECE PARIS</span>
+      <div className="flex-grow flex flex-col items-center">
+        {/* TITRE - mb-16 pour descendre les cartes */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 bg-[#FFE600]/10 border border-[#FFE600]/30 text-[#FFE600] px-5 py-2 rounded-full text-[13px] font-black uppercase tracking-[3px] mb-6">
+            <Microscope size={16} />
+            Question de recherche
           </div>
-        </div>
-        <div className="h-[50px] bg-white rounded-lg px-5 flex items-center shadow-lg">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/EY_logo_2019.svg" alt="EY" className="h-[35px]" />
-        </div>
-      </div>
-
-      <div className="flex-grow flex flex-col justify-center">
-        {/* PROBLÉMATIQUE CENTRALE */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-[#FFE600]/10 border border-[#FFE600]/30 text-[#FFE600] px-4 py-1 rounded-full text-[12px] font-black uppercase tracking-[3px] mb-4">
-            <Microscope size={14} /> Question de Recherche
-          </div>
-          <h3 className="text-[32px] font-light italic leading-tight max-w-4xl mx-auto text-white/90">
-            Comment transformer cet audit statique en un système capable d'anticiper les défaillances avant qu'elles ne soient perçues par l'utilisateur ? 
-          </h3>
+          <h1 className="text-white text-[36px] font-extrabold leading-tight max-w-4xl mx-auto">
+            Comment transformer cet audit statique en un système capable d'anticiper les défaillances avant qu'elles ne soient perçues par l'utilisateur ?
+          </h1>
         </div>
 
-        {/* HYPOTHÈSES KPI CARDS */}
-        <div className="grid grid-cols-2 gap-8 max-w-5xl mx-auto w-full">
-          {/* H1: LEAD TIME */}
-          <motion.div 
-            whileHover={{ y: -5 }}
-            className="bg-white/[0.03] border border-white/10 p-8 rounded-[32px] relative overflow-hidden group"
-          >
-            <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-              <Hourglass size={80} />
+        {/* KPI CARDS - Ajout d'un petit margin top pour équilibrer */}
+        <div className="grid grid-cols-2 gap-8 max-w-[850px] mx-auto w-full mt-2">
+          {/* H1 — LEAD TIME */}
+          <motion.div whileHover={{ y: -4 }} className="bg-white/10 border border-white/15 rounded-3xl p-7 relative">
+            <div className="absolute top-6 right-6 opacity-10"><Hourglass size={60} /></div>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="bg-[#FFE600] px-3 py-1 rounded-md text-black font-black text-[14px]">H1</div>
+              <h4 className="text-[16px] font-bold uppercase tracking-widest text-gray-300">Lead Time</h4>
             </div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="bg-[#FFE600] p-2 rounded-lg text-black font-bold text-[14px]">H1</div>
-              <h4 className="text-[18px] font-bold uppercase tracking-widest text-gray-400">Lead Time</h4>
+            <div className="flex items-end gap-2 mb-3">
+              <span className="text-[64px] font-black text-[#FFE600] leading-none">&gt; 2</span>
+              <span className="text-[22px] font-bold text-[#FFE600] pb-1">minutes</span>
             </div>
-            <div className="flex items-baseline gap-2 mb-2">
-              <span className="text-[72px] font-black text-[#FFE600] leading-none">&gt; 2</span>
-              <span className="text-[24px] font-bold text-[#FFE600]">minutes</span>
-            </div>
-            <p className="text-[17px] text-gray-300 leading-relaxed max-w-[300px]">
-              Délai d'anticipation nécessaire pour une <b>auto-remédiation</b> ou une <b>intervention humaine</b>.
-            </p>
+            <p className="text-[17px] text-gray-200">Délai d'anticipation nécessaire pour une <strong className="text-white">auto-remédiation</strong>.</p>
           </motion.div>
 
-          {/* H2: PRÉCISION */}
-          <motion.div 
-            whileHover={{ y: -5 }}
-            className="bg-white/[0.03] border border-white/10 p-8 rounded-[32px] relative overflow-hidden group"
-          >
-            <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-              <Target size={80} />
+          {/* H2 — PRÉCISION */}
+          <motion.div whileHover={{ y: -4 }} className="bg-white/10 border border-white/15 rounded-3xl p-7 relative">
+            <div className="absolute top-6 right-6 opacity-10"><Target size={60} /></div>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="bg-[#FFE600] px-3 py-1 rounded-md text-black font-black text-[14px]">H2</div>
+              <h4 className="text-[16px] font-bold uppercase tracking-widest text-gray-300">Précision</h4>
             </div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="bg-[#FFE600] p-2 rounded-lg text-black font-bold text-[14px]">H2</div>
-              <h4 className="text-[18px] font-bold uppercase tracking-widest text-gray-400">Précision</h4>
+            <div className="flex items-end gap-2 mb-3">
+              <span className="text-[64px] font-black text-[#FFE600] leading-none">&gt; 85</span>
+              <span className="text-[22px] font-bold text-[#FFE600] pb-1">%</span>
             </div>
-            <div className="flex items-baseline gap-2 mb-2">
-              <span className="text-[72px] font-black text-[#FFE600] leading-none">&gt; 85</span>
-              <span className="text-[24px] font-bold text-[#FFE600]">%</span>
-            </div>
-            <p className="text-[17px] text-gray-300 leading-relaxed max-w-[320px]">
-              Fusion des métriques <b>Système</b> et <b>Applicatives</b> pour réduire drastiquement les faux positifs.
-            </p>
+            <p className="text-[17px] text-gray-200">Fusion des métriques <strong className="text-white">Système</strong> et <strong className="text-white">Applicatives</strong>.</p>
           </motion.div>
         </div>
       </div>
 
       {/* FOOTER */}
-      {/* FOOTER HUD - Version Fixe avec Absolute */}
-      <div className="absolute bottom-0 left-0 w-full px-20 pb-10 z-20">
-        <div className="pt-4 border-t border-slate-200 flex justify-between items-center text-[10px] font-extrabold uppercase tracking-widest">
-          <div className="text-white">Numéro d'équipe: #PFE25-R-474</div>
-          <div className="text-white text-xs font-black">
-            04 <span className="text-ey-yellow">/</span> 10
-          </div>
+      <div className="absolute bottom-0 left-0 w-full px-20 pb-8">
+        <div className="pt-4 border-t border-white/15 flex justify-between items-center text-[11px] font-extrabold uppercase tracking-widest text-white/70">
+          <div>Numéro d'équipe : <span className="text-white">#PFE25-R-474</span></div>
+          <div className="text-sm font-black text-white">04 <span className="text-[#FFE600]">/</span> 10</div>
         </div>
       </div>
     </motion.div>

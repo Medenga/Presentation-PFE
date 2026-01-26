@@ -1,74 +1,84 @@
- import React from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { History, Zap, Search, GraduationCap, ArrowRight } from 'lucide-react';
+import { History, Zap, Search, ArrowRight } from 'lucide-react';
 
 const Slide2 = () => {
   return (
-    <motion.div 
-      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-      className="relative w-[1280px] h-[720px] bg-[#0d0d0d] text-white flex flex-col p-[60px_80px] overflow-hidden font-urbanist"
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      // Harmonisation : font-sans et padding vertical pour remonter le contenu
+      className="relative w-[1280px] h-[720px] bg-pres-grey text-white flex flex-col px-20 pt-12 pb-28 overflow-hidden font-sans"
     >
-      {/* HEADER HUD */}
-      <div className="flex justify-between items-center z-10 w-full mb-4">
-        <div className="h-[50px] bg-white/[0.05] border border-white/10 rounded-lg px-5 flex items-center backdrop-blur-md">
-          <div className="flex items-center gap-2 font-extrabold text-[14px] tracking-widest uppercase text-white">
-            <GraduationCap size={18} strokeWidth={0.5} />
-            <span>ECE PARIS</span>
-          </div>
-        </div>
-        <div className="h-[50px] bg-white rounded-lg px-5 flex items-center shadow-lg">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/EY_logo_2019.svg" alt="EY" className="h-[35px]" />
-        </div>
-      </div>
+      {/* TITLE - Ajusté à 36px et font-extrabold pour correspondre aux autres slides */}
+      <h1 className="text-white text-[36px] font-extrabold leading-tight max-w-5xl mx-auto text-center mb-8">
+        L&apos;Impératif de Mutation
+      </h1>
 
-      <h2 className="text-[#FFE600] text-[28px] font-bold tracking-[8px] uppercase mb-6 text-center">
-        L'Impératif de Mutation
-      </h2>
-      
-      <div className="flex-grow flex flex-col justify-center">
+      {/* CONTENT */}
+      <div className="flex-grow flex flex-col items-center justify-center">
+        
         {/* SPLIT VIEW */}
-        <div className="grid grid-cols-2 gap-0 items-stretch h-[280px] mb-12">
+        <div className="grid grid-cols-2 w-full max-w-[900px] h-[220px] mb-10">
+          
           {/* TRADITIONNEL */}
-          <div className="bg-white/[0.02] border border-white/10 rounded-l-3xl p-10 flex flex-col justify-center items-center text-center opacity-50">
-            <History size={48} className="mb-4 text-gray-500" />
-            <h3 className="text-[32px] font-bold text-gray-400 mb-2">Audit Traditionnel</h3>
-            <p className="text-[20px] text-gray-500 italic">"L'Historien"</p>
-            <div className="mt-6 text-[16px] text-gray-500 uppercase tracking-widest">Constat Rétrospectif</div>
+          <div className="bg-black/20 border border-white/15 rounded-l-3xl px-8 flex flex-col justify-center items-center text-center opacity-60">
+            <History size={42} className="mb-3 text-gray-500" />
+            <h3 className="text-[32px] font-bold text-gray-400 mb-1">
+              Audit Traditionnel
+            </h3>
+            <p className="text-[20px] text-gray-500 italic">
+              &quot;L&apos;Historien&quot;
+            </p>
+            <div className="mt-4 text-[16px] text-gray-400 uppercase tracking-widest font-bold">
+              Constat rétrospectif
+            </div>
           </div>
 
-          {/* PRÉDICTIF */}
-          <div className="bg-[#FFE600]/[0.03] border-2 border-[#FFE600] rounded-r-3xl p-10 flex flex-col justify-center items-center text-center relative">
-            <div className="absolute -left-6 top-1/2 -translate-y-1/2 bg-[#FFE600] rounded-full p-2 text-black shadow-[0_0_20px_rgba(255,230,0,0.5)]">
-              <ArrowRight size={24} strokeWidth={3} />
+          {/* PREDICTIF */}
+          <div className="relative bg-ey-yellow/5 border-2 border-ey-yellow rounded-r-3xl px-8 flex flex-col justify-center items-center text-center">
+            
+            <div className="absolute -left-5 top-1/2 -translate-y-1/2 bg-ey-yellow rounded-full p-2 text-black shadow-[0_0_20px_rgba(255,230,0,0.5)] z-10">
+              <ArrowRight size={22} strokeWidth={3} />
             </div>
-            <Zap size={48} className="mb-4 text-[#FFE600]" />
-            <h3 className="text-[40px] font-black text-[#FFE600] mb-2">Audit Prédictif</h3>
-            <p className="text-[24px] text-white font-medium italic">"La Vigie"</p>
-            <div className="mt-6 text-[16px] text-[#FFE600] font-bold uppercase tracking-widest">Anticipation Proactive</div>
+
+            <Zap size={42} className="mb-3 text-ey-yellow" />
+            <h3 className="text-[40px] font-black text-ey-yellow mb-1">
+              Audit Prédictif
+            </h3>
+            <p className="text-[22px] text-white italic">
+              &quot;La Vigie&quot;
+            </p>
+            <div className="mt-4 text-[16px] text-ey-yellow font-bold uppercase tracking-widest">
+              Anticipation proactive
+            </div>
           </div>
         </div>
 
-        {/* PUNCHLINE ANALOGIE */}
-        <motion.div 
+        {/* PUNCHLINE */}
+        <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="bg-white/[0.03] border-l-4 border-[#FFE600] p-6 rounded-r-3xl max-w-3xl mx-auto flex items-center gap-6"
+          transition={{ delay: 0.4 }}
+          className="bg-black/30 border-l-4 border-ey-yellow px-8 py-5 rounded-r-3xl max-w-3xl flex items-center gap-6"
         >
-          <Search className="text-[#FFE600] shrink-0" size={40} />
-          <p className="text-[22px] leading-tight text-gray-300">
-            "Chercher une aiguille dans une <br/> 
-            <span className="text-white font-bold">botte de foin en mouvement</span>".
+          <Search size={36} className="text-ey-yellow shrink-0" />
+          <p className="text-[22px] leading-snug text-gray-300">
+            &quot;Chercher une aiguille dans une{" "}
+            <span className="text-white font-bold">
+              botte de foin en mouvement
+            </span>
+            &quot;.
           </p>
         </motion.div>
       </div>
 
       {/* FOOTER */}
-      {/* FOOTER HUD - Version Fixe avec Absolute */}
-      <div className="absolute bottom-0 left-0 w-full px-20 pb-10 z-20">
-        <div className="pt-4 border-t border-slate-200 flex justify-between items-center text-[10px] font-extrabold uppercase tracking-widest">
-          <div className="text-white">Numéro d'équipe: #PFE25-R-474</div>
-          <div className="text-white text-xs font-black">
+      <div className="absolute bottom-0 left-0 w-full px-20 pb-10">
+        <div className="pt-4 border-t border-white/20 flex justify-between items-center text-[11px] font-extrabold uppercase tracking-widest text-white/70">
+          <div>Numéro d&apos;équipe : <span className="text-white">#PFE25-R-474</span></div>
+          <div className="text-sm font-black text-white">
             02 <span className="text-ey-yellow">/</span> 10
           </div>
         </div>

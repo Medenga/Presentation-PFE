@@ -1,102 +1,109 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShieldCheck, Zap, Eye, Sparkles, GraduationCap } from 'lucide-react';
+import { ShieldCheck, Zap, Eye, Sparkles } from 'lucide-react';
 
 const Slide3 = () => {
   return (
-    <motion.div 
-      initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-      className="relative w-[1280px] h-[720px] bg-[#0d0d0d] text-white flex flex-col p-[40px_80px] overflow-hidden font-urbanist"
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      // pb-20 au lieu de pb-28 pour laisser le contenu descendre naturellement
+      className="relative w-[1280px] h-[720px] bg-pres-grey text-white flex flex-col px-20 pt-12 pb-20 overflow-hidden font-sans"
     >
-      {/* HEADER */}
-      <div className="flex justify-between items-center z-10 w-full mb-4">
-        <div className="h-[50px] bg-white/[0.05] border border-white/10 rounded-lg px-5 flex items-center backdrop-blur-md">
-          <div className="flex items-center gap-2 font-extrabold text-[14px] tracking-widest uppercase">
-            <GraduationCap size={18} className="text-[#FFE600]" />
-            <span>ECE PARIS</span>
+      {/* TITLE - Taille harmonisée 36px et Gras */}
+      <h3 className="text-white text-[36px] font-extrabold leading-tight max-w-5xl mx-auto text-center mb-12">
+        Positionnement stratégique
+      </h3>
+
+      {/* On ajoute mt-4 pour pousser tout le bloc vers le bas */}
+      <div className="flex-grow flex items-center justify-between mt-4">
+        
+        {/* VENN */}
+        <div className="relative w-[500px] h-[420px]">
+          {/* RIGUEUR */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[280px] h-[280px] rounded-full border-2 border-blue-400/40 bg-blue-400/10 flex flex-col items-center justify-start pt-8 text-center">
+            <ShieldCheck size={32} className="text-blue-400 mb-2" />
+            <div className="text-[18px] font-bold text-blue-200 uppercase tracking-wider">Rigueur</div>
+            <div className="text-[14px] text-blue-200/70 mt-1 font-medium">
+              Audit traditionnel (IFACI)
+            </div>
           </div>
-        </div>
-        <div className="h-[50px] bg-white rounded-lg px-5 flex items-center shadow-lg">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/EY_logo_2019.svg" alt="EY" className="h-[35px]" />
-        </div>
-      </div>
 
-      <h2 className="text-[#FFE600] text-[24px] font-bold tracking-[8px] uppercase mb-8 text-center">
-        Positionnement Stratégique
-      </h2>
+          {/* PUISSANCE */}
+          <div className="absolute bottom-4 left-0 w-[280px] h-[280px] rounded-full border-2 border-green-400/40 bg-green-400/10 flex flex-col items-center justify-start pt-10 text-center">
+            <Zap size={32} className="text-green-400 mb-2" />
+            <div className="text-[18px] font-bold text-green-200 uppercase tracking-wider">Puissance</div>
+            <div className="text-[14px] text-green-200/70 mt-1 font-medium">
+              Temps réel (AIOps)
+            </div>
+          </div>
 
-      <div className="flex-grow flex items-center justify-between">
-        {/* VENN DIAGRAM AREA */}
-        <div className="relative w-[500px] h-[450px]">
-          {/* Cercle 1: Rigueur */}
-          <motion.div 
-            initial={{ x: -50, opacity: 0 }} animate={{ x: 0, opacity: 1 }}
-            className="absolute top-0 left-1/2 -translate-x-1/2 w-[280px] h-[280px] rounded-full border-2 border-blue-500/30 bg-blue-500/10 flex flex-col items-center justify-center p-8 text-center"
+          {/* CONFIANCE */}
+          <div className="absolute bottom-4 right-0 w-[280px] h-[280px] rounded-full border-2 border-purple-400/40 bg-purple-400/10 flex flex-col items-center justify-start pt-10 text-center">
+            <Eye size={32} className="text-purple-400 mb-2" />
+            <div className="text-[18px] font-bold text-purple-200 uppercase tracking-wider">Confiance</div>
+            <div className="text-[14px] text-purple-200/70 mt-1 font-medium">
+              Explicabilité (XAI)
+            </div>
+          </div>
+
+          {/* CENTRE */}
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ delay: 0.4 }}
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+                       w-[80px] h-[80px] bg-ey-yellow rounded-full 
+                       shadow-[0_0_30px_rgba(255,230,0,0.5)] 
+                       flex items-center justify-center z-10"
           >
-            <ShieldCheck className="text-blue-400 mb-2" size={32} />
-            <span className="font-bold text-blue-200">RIGUEUR</span>
-            <span className="text-[12px] opacity-60 italic mt-1">Audit Traditionnel (IFACI)</span>
-          </motion.div>
-
-          {/* Cercle 2: Puissance */}
-          <motion.div 
-            initial={{ x: 50, y: 50, opacity: 0 }} animate={{ x: 0, y: 0, opacity: 1 }}
-            className="absolute bottom-10 left-0 w-[280px] h-[280px] rounded-full border-2 border-green-500/30 bg-green-500/10 flex flex-col items-center justify-center p-8 text-center"
-          >
-            <Zap className="text-green-400 mb-2" size={32} />
-            <span className="font-bold text-green-200">PUISSANCE</span>
-            <span className="text-[12px] opacity-60 italic mt-1">Temps Réel (AIOps)</span>
-          </motion.div>
-
-          {/* Cercle 3: Explicabilité */}
-          <motion.div 
-            initial={{ x: -50, y: 50, opacity: 0 }} animate={{ x: 0, y: 0, opacity: 1 }}
-            className="absolute bottom-10 right-0 w-[280px] h-[280px] rounded-full border-2 border-purple-500/30 bg-purple-500/10 flex flex-col items-center justify-center p-8 text-center"
-          >
-            <Eye className="text-purple-400 mb-2" size={32} />
-            <span className="font-bold text-purple-200">CONFIANCE</span>
-            <span className="text-[12px] opacity-60 italic mt-1">Explicabilité (XAI)</span>
-          </motion.div>
-
-          {/* CENTRE: LE PROJET */}
-          <motion.div 
-            initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 0.8 }}
-            className="absolute top-[48%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120px] h-[120px] bg-[#FFE600] rounded-full shadow-[0_0_40px_rgba(255,230,0,0.4)] flex items-center justify-center z-20 border-4 border-[#0d0d0d]"
-          >
-            <Sparkles className="text-black" size={48} />
+            <Sparkles size={30} className="text-black" />
           </motion.div>
         </div>
 
-        {/* EXPLANATION CARDS */}
-        <div className="w-[500px] space-y-4">
-          <div className="bg-white/[0.03] border border-white/10 p-5 rounded-2xl">
-            <h4 className="text-blue-400 font-bold mb-1">Limite Normative</h4>
-            <p className="text-[15px] text-gray-400 italic">"L'audit constate la conformité a posteriori, il ne prédit pas la panne." </p>
+        {/* EXPLANATION - Correction de la police (plus d'italique) */}
+        <div className="w-[520px] space-y-5">
+
+          <div className="bg-black/35 border border-white/15 p-6 rounded-2xl">
+            <h4 className="text-blue-400 font-bold text-[18px] mb-2">
+              Limite normative
+            </h4>
+            <p className="text-[16px] text-white/80 leading-relaxed font-normal">
+              "L’audit constate la conformité a posteriori, il ne prédit pas la panne."
+            </p>
           </div>
-          <div className="bg-white/[0.03] border border-white/10 p-5 rounded-2xl">
-            <h4 className="text-green-400 font-bold mb-1">Le Piège de l'AIOps</h4>
-            <p className="text-[15px] text-gray-400 italic">"La 'Boîte Noire' mathématique est incompatible avec la preuve d'audit." </p>
+
+          <div className="bg-black/35 border border-white/15 p-6 rounded-2xl">
+            <h4 className="text-green-400 font-bold text-[18px] mb-2">
+              Le piège de l’AIOps
+            </h4>
+            <p className="text-[16px] text-white/80 leading-relaxed font-normal">
+              "La boîte noire mathématique est incompatible avec la preuve d’audit."
+            </p>
           </div>
-          <div className="bg-[#FFE600]/10 border border-[#FFE600]/20 p-5 rounded-2xl">
-            <h4 className="text-[#FFE600] font-black uppercase tracking-widest text-[14px]">Notre Solution</h4>
-            <p className="text-[18px] font-bold mt-1 text-white">
-              L'audit prédictif devient intelligible grâce aux modèles SHAP & LIME. 
+
+          <div className="bg-ey-yellow/10 border border-ey-yellow/30 p-6 rounded-2xl">
+            <h4 className="text-ey-yellow font-black uppercase tracking-widest text-[13px] mb-2">
+              Notre solution
+            </h4>
+            <p className="text-[19px] font-bold text-white leading-tight">
+              L’audit prédictif devient intelligible grâce aux modèles SHAP & LIME.
             </p>
           </div>
         </div>
       </div>
 
-    {/* FOOTER */}
-    {/* FOOTER HUD - Version Fixe avec Absolute */}
-    <div className="absolute bottom-0 left-0 w-full px-20 pb-10 z-20">
-      <div className="pt-4 border-t border-slate-200 flex justify-between items-center text-[10px] font-extrabold uppercase tracking-widest">
-        <div className="text-white">Numéro d'équipe: #PFE25-R-474</div>
-        <div className="text-white text-xs font-black">
-          03 <span className="text-ey-yellow">/</span> 10
+      {/* FOOTER */}
+      <div className="absolute bottom-0 left-0 w-full px-20 pb-10">
+        <div className="pt-4 border-t border-white/15 flex justify-between items-center text-[11px] font-extrabold uppercase tracking-widest text-white/60">
+          <div>Numéro d’équipe : <span className="text-white">#PFE25-R-474</span></div>
+          <div className="text-sm font-black text-white">
+            03 <span className="text-ey-yellow">/</span> 10
+          </div>
         </div>
       </div>
-    </div>
-  </motion.div>
+    </motion.div>
   );
 };
 
