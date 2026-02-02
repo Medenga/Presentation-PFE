@@ -168,9 +168,9 @@ const Simulation = () => {
           </div>
 
           <aside className="flex flex-col gap-4">
-            <div className="bg-white/5 border border-white/10 p-4 rounded-xl flex-1">
+            <div className="bg-white/5 border border-white/10 p-4 pt-4 rounded-xl flex-1 flex flex-col">
               <h3 className="text-[#FFE600] font-black text-base uppercase mb-6 flex items-center gap-2"><Database size={20}/> Protocole</h3>
-              <div className="space-y-5 border-l border-white/10 ml-2">
+              <div className="space-y-5 border-l border-white/10 ml-2 flex-1 flex flex-col justify-center">
                 <TimelineStep title="Simulation Chaos" desc="Injection de latence réseau (Pumba)." />
                 <TimelineStep title="Collecte Métriques" desc="Scrape Prometheus (5s intervals)." />
                 <TimelineStep title="Inférence IA" desc="LSTM : Prédiction séries temporelles." />
