@@ -1,8 +1,29 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Microscope, Hourglass, Target } from 'lucide-react';
+import { Microscope, Database, Cpu, Search } from 'lucide-react';
 
 const Slide4 = () => {
+  const objectives = [
+    {
+      id: "01",
+      title: "Benchmark Modèles",
+      icon: <Cpu size={40} />,
+      desc: "Comparaison **ML**, **DL** et **Hybride** pour la performance.",
+    },
+    {
+      id: "02",
+      title: "Dataset Dédié",
+      icon: <Database size={40} />,
+      desc: "Génération de données via un **banc d'essai** système/app.",
+    },
+    {
+      id: "03",
+      title: "XAI (SHAP/LIME)",
+      icon: <Search size={40} />,
+      desc: "Justification des alertes et fin de l'effet **boîte noire**.",
+    }
+  ];
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -11,8 +32,8 @@ const Slide4 = () => {
       className="relative w-[1280px] h-[720px] bg-pres-grey text-white flex flex-col px-20 pt-12 pb-24 overflow-hidden font-sans"
     >
       <div className="flex-grow flex flex-col items-center">
-        {/* TITRE - mb-16 pour descendre les cartes */}
-        <div className="text-center mb-16">
+        {/* TITRE - Identique à l'original */}
+        <div className="text-center mb-20">
           <div className="inline-flex items-center gap-2 bg-[#FFE600]/10 border border-[#FFE600]/30 text-[#FFE600] px-5 py-2 rounded-full text-[13px] font-black uppercase tracking-[3px] mb-6">
             <Microscope size={16} />
             Question de recherche
@@ -22,35 +43,29 @@ const Slide4 = () => {
           </h1>
         </div>
 
-        {/* KPI CARDS - Ajout d'un petit margin top pour équilibrer */}
-        <div className="grid grid-cols-2 gap-8 max-w-[850px] mx-auto w-full mt-2">
-          {/* H1 — LEAD TIME */}
-          <motion.div whileHover={{ y: -4 }} className="bg-white/10 border border-white/15 rounded-3xl p-7 relative">
-            <div className="absolute top-6 right-6 opacity-10"><Hourglass size={60} /></div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="bg-[#FFE600] px-3 py-1 rounded-md text-black font-black text-[14px]">H1</div>
-              <h4 className="text-[16px] font-bold uppercase tracking-widest text-gray-300">Lead Time</h4>
-            </div>
-            <div className="flex items-end gap-2 mb-3">
-              <span className="text-[64px] font-black text-[#FFE600] leading-none">&gt; 2</span>
-              <span className="text-[22px] font-bold text-[#FFE600] pb-1">minutes</span>
-            </div>
-            <p className="text-[17px] text-gray-200">Délai d'anticipation nécessaire pour une <strong className="text-white">auto-remédiation</strong>.</p>
-          </motion.div>
+        {/* OBJECTIFS - Grille de 3 colonnes */}
+        <div className="grid grid-cols-3 gap-8 w-full max-w-[1000px] mx-auto">
+          {objectives.map((obj, index) => (
+            <motion.div 
+              key={index}
+              whileHover={{ y: -5 }}
+              className="bg-white/10 border border-white/15 rounded-3xl p-8 relative flex flex-col items-center text-center"
+            >
+              <div className="text-[#FFE600] mb-6 opacity-80">{obj.icon}</div>
+              
+              <div className="bg-[#FFE600] px-3 py-0.5 rounded-md text-black font-black text-[12px] mb-4">
+                OBJ {obj.id}
+              </div>
 
-          {/* H2 — PRÉCISION */}
-          <motion.div whileHover={{ y: -4 }} className="bg-white/10 border border-white/15 rounded-3xl p-7 relative">
-            <div className="absolute top-6 right-6 opacity-10"><Target size={60} /></div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="bg-[#FFE600] px-3 py-1 rounded-md text-black font-black text-[14px]">H2</div>
-              <h4 className="text-[16px] font-bold uppercase tracking-widest text-gray-300">Précision</h4>
-            </div>
-            <div className="flex items-end gap-2 mb-3">
-              <span className="text-[64px] font-black text-[#FFE600] leading-none">&gt; 85</span>
-              <span className="text-[22px] font-bold text-[#FFE600] pb-1">%</span>
-            </div>
-            <p className="text-[17px] text-gray-200">Fusion des métriques <strong className="text-white">Système</strong> et <strong className="text-white">Applicatives</strong>.</p>
-          </motion.div>
+              <h3 className="text-[20px] font-bold mb-3 uppercase tracking-tight text-white">
+                {obj.title}
+              </h3>
+              
+              <p className="text-[15px] text-gray-300 leading-relaxed" 
+                 dangerouslySetInnerHTML={{ __html: obj.desc.replace(/\*\*(.*?)\*\*/g, '<strong class="text-[#FFE600]">$1</strong>') }}>
+              </p>
+            </motion.div>
+          ))}
         </div>
       </div>
 
