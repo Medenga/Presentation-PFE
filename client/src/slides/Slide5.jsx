@@ -30,30 +30,17 @@ const Slide5 = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="relative w-[1280px] h-[720px] bg-[#0d0d0d] text-white flex flex-col p-[60px_80px] overflow-hidden font-urbanist"
+      className="relative w-[1280px] h-[720px] bg-[#313130] text-white flex flex-col p-[60px_80px] overflow-hidden font-sans"
     >
       {/* Fine line top */}
       <div className="absolute top-0 left-0 w-full h-[4px] bg-[#FFE600]/90" />
 
-      {/* Header */}
-      <div className="flex justify-between items-center z-10 w-full mb-8">
-        <div className="h-[50px] bg-white/[0.05] border border-white/10 rounded-lg px-5 flex items-center backdrop-blur-md text-white font-extrabold text-[14px] gap-2 uppercase tracking-widest">
-          <GraduationCap size={18} /> ECE PARIS
-        </div>
-
-        <div className="h-[50px] bg-white rounded-lg px-5 flex items-center shadow-lg">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/3/34/EY_logo_2019.svg"
-            alt="EY"
-            className="h-[35px]"
-          />
-        </div>
-      </div>
+      {/* Header - removed logos */}
 
       {/* Content */}
       <div className="flex-grow flex flex-col justify-center items-center text-center">
         {/* Title block */}
-        <div className="border-l-4 border-[#FFE600] pl-6 text-left mb-10">
+        <div className="border-l-4 border-[#FFE600] pl-6 text-left mb-16">
           {/* Button "Démonstration" */}
           <button
             onClick={() => navigate("/demonstration")} // route future
@@ -66,8 +53,8 @@ const Slide5 = () => {
           </button>
 
           {/* New title */}
-          <h1 className="text-[50px] font-light uppercase tracking-tighter">
-            Présentation des <span className="font-bold text-[#FFE600]">résultats</span>
+          <h1 className="text-[50px] font-bold tracking-tighter">
+            Présentation des <span className="text-[#FFE600]">résultats</span>
           </h1>
         </div>
 

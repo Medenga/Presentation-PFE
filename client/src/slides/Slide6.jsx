@@ -14,35 +14,20 @@ const Slide6 = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="relative w-[1280px] h-[720px] bg-[#0d0d0d] text-white flex flex-col p-[60px_80px] overflow-hidden font-urbanist"
+      className="relative w-[1280px] h-[720px] bg-[#313130] text-white flex flex-col p-[60px_80px] overflow-hidden font-sans"
     >
-      {/* HEADER */}
-      <div className="flex justify-between items-center z-10 w-full mb-8">
-        <div className="h-[50px] bg-white/[0.05] border border-white/10 rounded-lg px-5 flex items-center backdrop-blur-md">
-          <div className="flex items-center gap-2 font-extrabold text-[14px] tracking-widest uppercase text-white">
-            <GraduationCap size={18} />
-            <span>ECE PARIS</span>
-          </div>
-        </div>
-        <div className="h-[50px] bg-white rounded-lg px-5 flex items-center shadow-lg">
-          <img 
-            src="https://upload.wikimedia.org/wikipedia/commons/3/34/EY_logo_2019.svg" 
-            alt="EY" 
-            className="h-[35px]" 
-          />
-        </div>
-      </div>
+      {/* Header - removed logos */}
 
       {/* TITLE BLOCK */}
       <div className="mb-10 border-l-4 border-[#FFE600] pl-6">
         <div className="text-[#FFE600] text-[13px] font-bold tracking-[4px] uppercase mb-1">Protocole Expérimental</div>
-        <h1 className="text-[40px] font-light uppercase">
-          De la <span className="font-bold">Simulation</span> à la <span className="font-bold text-[#FFE600]">Validation Prédictive</span>
+        <h1 className="text-[40px] font-bold">
+          De la <span className="text-white">Simulation</span> à la <span className="text-[#FFE600]">Validation Prédictive</span>
         </h1>
       </div>
 
       {/* WORKFLOW CONTAINER */}
-      <div className="grid grid-cols-4 gap-4  items-stretch">
+      <div className="grid grid-cols-4 gap-4 items-stretch justify-center max-w-[1120px] mx-auto mt-8">
         
         {/* STEP 01 */}
         <StepCard 
@@ -130,14 +115,14 @@ const StepCard = ({ number, title, icon, items, hTitle, hValue }) => (
       </span>
     </div>
 
-    <h3 className="text-[18px] font-bold uppercase tracking-tight mb-4 text-white">
+    <h3 className="text-[20px] font-bold uppercase tracking-tight mb-4 text-white">
       {title}
     </h3>
 
     {/* List Content */}
     <ul className="space-y-3 mb-6 flex-grow">
       {items.map((item, i) => (
-        <li key={i} className="text-[12px] leading-tight">
+        <li key={i} className="text-[13px] leading-tight">
           <strong className="text-[#FFE600] font-black uppercase tracking-tighter mr-1">{item.label} :</strong>
           <span className="text-gray-400">{item.val}</span>
         </li>
@@ -146,8 +131,8 @@ const StepCard = ({ number, title, icon, items, hTitle, hValue }) => (
 
     {/* Highlight Box */}
     <div className="mt-auto bg-white/[0.04] border border-white/5 p-3 rounded-xl text-center">
-      <div className="text-[9px] font-black uppercase tracking-widest text-white/30 mb-1">{hTitle}</div>
-      <div className="text-[12px] font-bold text-[#FFE600] uppercase italic">{hValue}</div>
+      <div className="text-[10px] font-black uppercase tracking-widest text-white/30 mb-1">{hTitle}</div>
+      <div className="text-[13px] font-bold text-[#FFE600] uppercase italic">{hValue}</div>
     </div>
   </div>
 );
