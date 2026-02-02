@@ -56,12 +56,12 @@ const Simulation = () => {
   }, [isSimulating, step]);
 
   return (
-    <div className="min-h-screen bg-[#313130] text-white p-10 font-['Helvetica',sans-serif] relative overflow-hidden">
+    <div className="min-h-screen bg-[#313130] text-white p-6 font-['Helvetica',sans-serif] relative overflow-auto">
       {/* Background Glow */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] pointer-events-none opacity-10 bg-[#FFE600] blur-[100px] rounded-full" />
 
       {/* Header */}
-      <header className="flex justify-between items-end border-b border-white/10 pb-8 mb-8">
+      <header className="flex justify-between items-end border-b border-white/10 pb-6 mb-6">
         <div>
           <div className="flex items-center gap-3 text-[#FFE600] font-black text-sm uppercase tracking-widest mb-2">
             <div className="h-1 w-10 bg-[#FFE600]" /> PFE FINAL PRESENTATION
@@ -74,7 +74,7 @@ const Simulation = () => {
       </header>
 
       {/* Tabs */}
-      <div className="flex gap-8 mb-10 border-b border-white/5">
+      <div className="flex gap-8 mb-6 border-b border-white/5">
         {['overview', 'tech'].map(t => (
           <button 
             key={t}
@@ -87,24 +87,24 @@ const Simulation = () => {
       </div>
 
       {tab === 'overview' ? (
-        <div className="grid grid-cols-3 gap-8">
-          <div className="col-span-2 space-y-6">
-            <div className="bg-black/40 border border-white/10 p-8 rounded-xl backdrop-blur-md">
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="flex items-center gap-3 font-bold uppercase tracking-tight text-lg">
-                  <Activity className="text-[#FFE600]" size={24} /> Analyse Prédictive vs Seuillage
+        <div className="grid grid-cols-3 gap-6 pb-6">
+          <div className="col-span-2 space-y-3">
+            <div className="bg-black/40 border border-white/10 p-4 rounded-xl backdrop-blur-md">
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="flex items-center gap-3 font-bold uppercase tracking-tight text-base">
+                  <Activity className="text-[#FFE600]" size={20} /> Analyse Prédictive vs Seuillage
                 </h2>
                 <button 
                   onClick={runSimulation} 
                   disabled={isSimulating}
-                  className="bg-[#FFE600] text-black px-8 py-3 font-black text-sm uppercase flex items-center gap-2 disabled:opacity-50"
+                  className="bg-[#FFE600] text-black px-6 py-2 font-black text-xs uppercase flex items-center gap-2 disabled:opacity-50"
                 >
                   {isSimulating ? <RefreshCw className="animate-spin" size={16} strokeWidth={0.5} /> : <Play size={16} strokeWidth={0.5} fill="black" />}
                   Lancement de l'analyse
                 </button>
               </div>
               
-              <div className="h-[240px] mb-5">
+              <div className="h-[160px] mb-4">
                 <Line 
                   data={chartData} 
                   options={{
@@ -142,7 +142,7 @@ const Simulation = () => {
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-2 gap-4">
                 <AlertBox 
                   active={step > 23} 
                   type="predictive" 
@@ -160,29 +160,29 @@ const Simulation = () => {
               </div>
             </div>
             
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-3">
               <KpiCard icon={<Clock />} label="Lead Time Moyen" val="4.2 MIN" />
               <KpiCard icon={<Brain />} label="F1-Score" val="0.89" />
               <KpiCard icon={<ShieldCheck />} label="Réduction Bruit" val="-22%" />
             </div>
           </div>
 
-          <aside className="space-y-6">
-            <div className="bg-white/5 border border-white/10 p-6 rounded-xl">
-              <h3 className="text-[#FFE600] font-black text-sm uppercase mb-6 flex items-center gap-2"><Database size={18}/> Protocole</h3>
-              <div className="space-y-6 border-l border-white/10 ml-2">
+          <aside className="flex flex-col gap-4">
+            <div className="bg-white/5 border border-white/10 p-4 rounded-xl flex-1">
+              <h3 className="text-[#FFE600] font-black text-base uppercase mb-6 flex items-center gap-2"><Database size={20}/> Protocole</h3>
+              <div className="space-y-5 border-l border-white/10 ml-2">
                 <TimelineStep title="Simulation Chaos" desc="Injection de latence réseau (Pumba)." />
                 <TimelineStep title="Collecte Métriques" desc="Scrape Prometheus (5s intervals)." />
                 <TimelineStep title="Inférence IA" desc="LSTM : Prédiction séries temporelles." />
               </div>
             </div>
-            <div className="bg-[#FFE600] text-black p-6 rounded-xl font-bold italic text-base">
+            <div className="bg-[#FFE600] text-black p-4 rounded-xl font-bold italic text-sm leading-relaxed">
               L'approche transforme l'audit en une force proactive, anticipant les défaillances via la détection de signaux faibles.
             </div>
           </aside>
         </div>
       ) : (
-        <div className="grid grid-cols-2 gap-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+        <div className="grid grid-cols-2 gap-8 animate-in fade-in slide-in-from-bottom-4 duration-500 pb-12">
           <div className="bg-black/60 border border-white/10 p-10 rounded-xl">
              <h3 className="text-2xl font-black mb-8 uppercase flex items-center gap-3">Schéma du Banc d'Essai</h3>
              <div className="flex flex-col items-center gap-4">
@@ -199,7 +199,7 @@ const Simulation = () => {
           <div className="space-y-6">
              <div className="bg-white/5 border border-white/10 p-8 rounded-xl">
                 <h3 className="text-[#FFE600] font-black text-sm uppercase mb-4 tracking-widest">Variables d'Étude</h3>
-                <p className="text-base text-white/70 leading-relaxed italic border-l-2 border-[#FFE600] pl-4">
+                <p className="text-lg text-white/70 leading-relaxed italic border-l-2 border-[#FFE600] pl-4">
                   "Démontrer que le Deep Learning surpasse les seuils statiques pour garantir la continuité de service en milieu distribué."
                 </p>
              </div>
@@ -211,29 +211,31 @@ const Simulation = () => {
 };
 
 const AlertBox = ({ active, type, title, value, desc }) => (
-  <div className={`p-6 border-l-4 rounded transition-all duration-500 ${active ? (type === 'predictive' ? 'bg-[#FFE600]/10 border-[#FFE600] animate-pulse' : 'bg-red-900/20 border-red-500') : 'bg-white/5 border-white/20'}`}>
-    <div className={`flex items-center gap-2 text-xs font-black uppercase mb-3 ${active ? 'text-white' : 'text-white/30'}`}>
-      {type === 'predictive' ? <Zap size={16}/> : <AlertTriangle size={16}/>} {title}
+  <div className={`p-4 border-l-4 rounded transition-all duration-500 h-[100px] flex flex-col justify-between ${active ? (type === 'predictive' ? 'bg-[#FFE600]/10 border-[#FFE600] animate-pulse' : 'bg-red-900/20 border-red-500') : 'bg-white/5 border-white/20'}`}>
+    <div>
+      <div className={`flex items-center gap-2 text-xs font-black uppercase mb-2 ${active ? 'text-white' : 'text-white/30'}`}>
+        {type === 'predictive' ? <Zap size={14}/> : <AlertTriangle size={14}/>} {title}
+      </div>
+      <p className={`text-lg font-black ${active ? (type === 'predictive' ? 'text-[#FFE600]' : 'text-red-500') : 'text-white/10'}`}>
+        {active ? value : (type === 'predictive' ? 'VEILLE IA...' : 'STABLE')}
+      </p>
     </div>
-    <p className={`text-2xl font-black mb-2 ${active ? (type === 'predictive' ? 'text-[#FFE600]' : 'text-red-500') : 'text-white/10'}`}>
-      {active ? value : (type === 'predictive' ? 'VEILLE IA...' : 'STABLE')}
-    </p>
-    {active && <p className="text-xs text-white/60 uppercase tracking-tight leading-relaxed">{desc}</p>}
+    {active && <p className="text-xs text-white/60 uppercase tracking-tight leading-tight">{desc}</p>}
   </div>
 );
 
 const KpiCard = ({ icon, label, val }) => (
-  <div className="bg-black/40 border border-white/5 p-6 rounded-xl hover:border-[#FFE600]/50 transition-all group">
-    <div className="flex justify-between items-start mb-3">
+  <div className="bg-black/40 border border-white/5 p-4 rounded-xl hover:border-[#FFE600]/50 transition-all group">
+    <div className="flex justify-between items-start mb-2">
       <span className="text-xs font-black text-white/40 uppercase tracking-widest">{label}</span>
-      <span className="text-[#FFE600]/40 group-hover:text-[#FFE600]">{React.cloneElement(icon, { size: 20 })}</span>
+      <span className="text-[#FFE600]/40 group-hover:text-[#FFE600]">{React.cloneElement(icon, { size: 18 })}</span>
     </div>
-    <div className="text-3xl font-black">{val}</div>
+    <div className="text-2xl font-black">{val}</div>
   </div>
 );
 
 const TimelineStep = ({ title, desc }) => (
-  <div className="pl-6 relative mb-6">
+  <div className="pl-6 relative mb-5 last:mb-0">
     <div className="absolute left-[-5px] top-1 w-2.5 h-2.5 bg-[#FFE600] rounded-full shadow-[0_0_10px_#FFE600]" />
     <div className="text-base font-bold uppercase tracking-tight">{title}</div>
     <div className="text-sm text-white/50 font-light italic">{desc}</div>
