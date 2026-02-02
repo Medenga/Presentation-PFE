@@ -66,7 +66,7 @@ const Simulation = () => {
           <div className="flex items-center gap-3 text-[#FFE600] font-black text-sm uppercase tracking-widest mb-2">
             <div className="h-1 w-10 bg-[#FFE600]" /> PFE FINAL PRESENTATION
           </div>
-          <h1 className="text-5xl font-bold">analyse prédictive de performance</h1>
+          <h1 className="text-5xl font-bold">Analyse prédictive de performance</h1>
         </div>
         <button onClick={() => navigate(-1)} className="bg-[#FFE600] text-black px-8 py-3 font-black text-sm uppercase flex items-center gap-2 hover:bg-white transition-all">
           <ArrowLeft size={18} strokeWidth={0.5} /> Retour
