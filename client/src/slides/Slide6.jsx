@@ -20,7 +20,8 @@ const ArchBox = ({ title, icon, details, color, bgColor, borderColor, width = "w
     <h3 className={`font-bold text-[11px] uppercase mb-1.5 ${color} tracking-wider`}>{title}</h3>
     <ul className="space-y-1 w-full">
       {details.map((d, i) => (
-        <li key={i} className="text-[10px] text-gray-300 bg-black/30 px-1.5 py-0.5 rounded text-center truncate w-full">
+        // MODIFICATION ICI : bg-white/5 au lieu de bg-black/30 pour matcher la Slide 3
+        <li key={i} className="text-[10px] text-gray-300 bg-white/5 px-1.5 py-0.5 rounded text-center truncate w-full border border-white/5">
           {d}
         </li>
       ))}
@@ -42,7 +43,8 @@ const Line = ({ width = "w-8", color = "bg-white/10" }) => (
 
 const Slide6 = () => {
   return (
-    <div className="w-[1280px] h-[720px] bg-[#1a1a1a] text-white flex flex-col px-12 py-10 font-sans overflow-hidden relative">
+    // MODIFICATION ICI : bg-pres-grey au lieu de bg-[#1a1a1a]
+    <div className="w-[1280px] h-[720px] bg-pres-grey text-white flex flex-col px-12 py-10 font-sans overflow-hidden relative">
       
       {/* HEADER */}
       <div className="mb-6 flex justify-between items-end border-b border-white/10 pb-4">
@@ -50,13 +52,12 @@ const Slide6 = () => {
             <div className="text-[#FFE600] text-[10px] font-bold tracking-[4px] uppercase mb-1">Solution proposée</div>
             <h1 className="text-3xl font-bold">Protocole <span className="text-[#FFE600]">Expérimental</span></h1>
         </div>
-        {/* Suppression du texte demandée : la div est vide ou retirée */}
         <div className="text-right opacity-0 text-xs font-mono">
             Placeholder
         </div>
       </div>
 
-      {/* --- GRID CONTAINER (Pour un alignement parfait) --- */}
+      {/* --- GRID CONTAINER --- */}
       <div className="flex-1 grid grid-cols-12 gap-2 items-center relative pb-10">
         
         {/* --- COLONNE 1 : INPUT (Gauche) --- */}
@@ -83,7 +84,7 @@ const Slide6 = () => {
         {/* --- COLONNE 2 : ACQUISITION --- */}
         <div className="col-span-2 flex flex-col items-center justify-center relative">
              <Line width="w-full" color="bg-gray-600" />
-             <div className="absolute bg-[#1a1a1a] p-2">
+             <div className="absolute bg-pres-grey p-2"> {/* Match background color here too */}
                 <ArchBox 
                     title="Observabilité" 
                     icon={<Eye size={18} className="text-purple-400"/>}
@@ -147,7 +148,6 @@ const Slide6 = () => {
              <div className="bg-green-500/5 border border-green-500/30 p-4 rounded-xl flex flex-col gap-3 w-52">
                 <div className="flex items-center gap-2 mb-2 border-b border-green-500/20 pb-2">
                     <Target size={18} className="text-green-400" />
-                    {/* Titre qui claque */}
                     <span className="text-green-400 font-bold text-xs uppercase">Performance</span>
                 </div>
                 
@@ -163,7 +163,6 @@ const Slide6 = () => {
 
                 {/* Métrique 2 : L'Anticipation */}
                 <div className="flex justify-between items-center mt-1 pt-2 border-t border-white/5">
-                    {/* On empile les deux textes avec exactement le même style */}
                     <div className="flex flex-col leading-tight">
                         <span className="text-[10px] text-gray-400 uppercase font-bold">Gain de Temps</span>
                         <span className="text-[10px] text-gray-400 uppercase font-bold">(Lead Time)</span>
