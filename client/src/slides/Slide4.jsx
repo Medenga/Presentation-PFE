@@ -7,19 +7,19 @@ const Slide4 = () => {
     {
       id: "01",
       title: "Dataset Dédié",
-      icon: <Database size={40} />,
+      icon: <Database size={48} />,
       desc: "Génération de données via un **banc d'essai** système/app.",
     },
     {
       id: "02",
       title: "Benchmark Modèles",
-      icon: <Cpu size={40} />,
+      icon: <Cpu size={48} />,
       desc: "Comparaison **ML**, **DL** et **Hybride** pour la performance.",
     },
     {
       id: "03",
       title: "XAI (SHAP/LIME)",
-      icon: <Search size={40} />,
+      icon: <Search size={48} />,
       desc: "Justification des alertes et fin de l'effet **boîte noire**.",
     }
   ];
@@ -33,35 +33,35 @@ const Slide4 = () => {
     >
       <div className="flex-grow flex flex-col items-center">
         {/* TITRE - Identique à l'original */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-10">
           <div className="inline-flex items-center gap-2 bg-[#FFE600]/10 border border-[#FFE600]/30 text-[#FFE600] px-5 py-2 rounded-full text-[13px] font-black uppercase tracking-[3px] mb-6">
             <Microscope size={16} />
             Question de recherche
           </div>
-          <h1 className="text-white text-[36px] font-extrabold leading-tight max-w-4xl mx-auto">
+          <h1 className="text-white text-[35px] font-extrabold leading-tight max-w-4xl mx-auto">
             Le passage de la statistique au Deep Learning permet-il d'atteindre une exhaustivité de détection compatible avec les exigences de l'audit ?
           </h1>
         </div>
 
         {/* OBJECTIFS - Grille de 3 colonnes */}
-        <div className="grid grid-cols-3 gap-8 w-full max-w-[1000px] mx-auto">
+        <div className="grid grid-cols-3 gap-8 w-full max-w-[1100px] mx-auto">
           {objectives.map((obj, index) => (
             <motion.div 
               key={index}
               whileHover={{ y: -5 }}
-              className="bg-white/10 border border-white/15 rounded-3xl p-8 relative flex flex-col items-center text-center"
+              className="bg-white/10 border border-white/15 rounded-[32px] p-10 relative flex flex-col items-center text-center"
             >
               <div className="text-[#FFE600] mb-6 opacity-80">{obj.icon}</div>
               
-              <div className="bg-[#FFE600] px-3 py-0.5 rounded-md text-black font-black text-[12px] mb-4">
+              <div className="bg-[#FFE600] px-4 py-1 rounded-md text-black font-black text-[13px] mb-5">
                 OBJ {obj.id}
               </div>
 
-              <h3 className="text-[20px] font-bold mb-3 uppercase tracking-tight text-white">
+              <h3 className="text-[26px] font-bold mb-4 uppercase tracking-tight text-white leading-tight">
                 {obj.title}
               </h3>
               
-              <p className="text-[15px] text-gray-300 leading-relaxed" 
+              <p className="text-[19px] text-gray-300 leading-snug" 
                  dangerouslySetInnerHTML={{ __html: obj.desc.replace(/\*\*(.*?)\*\*/g, '<strong class="text-[#FFE600]">$1</strong>') }}>
               </p>
             </motion.div>
