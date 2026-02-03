@@ -51,12 +51,12 @@ const Slide3 = () => {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.4 }}
-            className="absolute top-[58%] left-1/2 -translate-x-1/2 -translate-y-1/2 
-                       w-[90px] h-[90px] bg-[#FFE600] rounded-full 
+            className="absolute top-[54%] left-1/2 -translate-x-1/2 -translate-y-1/2 
+                       w-[80px] h-[80px] bg-[#FFE600] rounded-full 
                        shadow-[0_0_40px_rgba(255,230,0,0.6)] 
                        flex items-center justify-center z-10"
           >
-            <Sparkles size={34} className="text-black" />
+            <Sparkles size={30} className="text-black" />
           </motion.div>
         </div>
 
