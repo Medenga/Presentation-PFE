@@ -47,8 +47,8 @@ const Slide6 = () => {
       {/* HEADER */}
       <div className="mb-6 flex justify-between items-end border-b border-white/10 pb-4">
         <div>
-            <div className="text-[#FFE600] text-[10px] font-bold tracking-[4px] uppercase mb-1">Architecture Technique</div>
-            <h1 className="text-3xl font-bold">Le Pipeline <span className="text-[#FFE600]">Hybride</span></h1>
+            <div className="text-[#FFE600] text-[10px] font-bold tracking-[4px] uppercase mb-1">Solution proposée</div>
+            <h1 className="text-3xl font-bold">Protocole <span className="text-[#FFE600]">Expérimental</span></h1>
         </div>
         {/* Suppression du texte demandée : la div est vide ou retirée */}
         <div className="text-right opacity-0 text-xs font-mono">
@@ -65,17 +65,17 @@ const Slide6 = () => {
             <ArchBox 
               title="Google Boutique" 
               icon={<CloudLightning size={16} className="text-red-400"/>}
-              details={["Cluster GKE", "Microservices"]}
+              details={["Site E-commerce", "Microservices"]}
               color="text-red-400" bgColor="bg-red-500/5" borderColor="border-red-500/30"
             />
             <div className="flex gap-2">
                 <div className="p-2 bg-red-900/10 border border-red-500/20 rounded flex flex-col items-center w-20">
                     <Users size={12} className="text-orange-400 mb-1"/>
-                    <span className="text-[9px] text-orange-400">Locust</span>
+                    <span className="text-[9px] text-orange-400">Charge:Clients</span>
                 </div>
                 <div className="p-2 bg-red-900/10 border border-red-500/20 rounded flex flex-col items-center w-20">
                     <ServerCrash size={12} className="text-red-400 mb-1"/>
-                    <span className="text-[9px] text-red-400">Chaos</span>
+                    <span className="text-[9px] text-red-400">Chaos:Incidents</span>
                 </div>
             </div>
         </div>
@@ -87,7 +87,7 @@ const Slide6 = () => {
                 <ArchBox 
                     title="Observabilité" 
                     icon={<Eye size={18} className="text-purple-400"/>}
-                    details={["Agent Datadog", "Collecte CSV"]}
+                    details={["Agent Datadog", "Collecte des données"]}
                     color="text-purple-400" bgColor="bg-purple-500/5" borderColor="border-purple-500/30" width="w-36"
                 />
              </div>
@@ -105,7 +105,7 @@ const Slide6 = () => {
                 <ArchBox 
                     title="Preprocessing Métriques" 
                     icon={<Activity size={18} className="text-blue-400"/>}
-                    details={["Scaling Robust", "Fenêtre 10 min", "Dérivées (Vitesse)"]}
+                    details={["Mise à l'échelle (Outliers)", "Fenêtre temporelle 10 min", "Analyse de Tendances"]}
                     color="text-blue-400" bgColor="bg-blue-500/5" borderColor="border-blue-500/30" width="w-48"
                 />
                 <Line width="w-16" color="bg-blue-500/50" />
@@ -118,7 +118,7 @@ const Slide6 = () => {
                 <ArchBox 
                     title="Preprocessing Logs" 
                     icon={<FileText size={18} className="text-yellow-400"/>}
-                    details={["Nettoyage Regex", "TF-IDF Vectorizer", "Top-30 Features"]}
+                    details={["Nettoyage du Texte", "TF-IDF : Encodage Numérique", "Sélection des Features"]}
                     color="text-yellow-400" bgColor="bg-yellow-500/5" borderColor="border-yellow-500/30" width="w-48"
                 />
                 <Line width="w-16" color="bg-yellow-500/50" />
@@ -127,9 +127,9 @@ const Slide6 = () => {
             {/* LE COEUR (FUSION) */}
             <div className="absolute top-1/2 -translate-y-1/2 right-0 z-20">
                 <ArchBox 
-                    title="FUSION HYBRIDE (GRU)" 
+                    title="FUSION HYBRIDE (GRU + NLP)" 
                     icon={<BrainCircuit size={24} className="text-[#FFE600]"/>}
-                    details={["Input: 40 dims", "Unités: 128 + 64", "Dropout: 0.3"]}
+                    details={["Fusion Multimodale", "Mémoire à Long Terme", "Robustesse (Dropout)"]}
                     color="text-[#FFE600]" bgColor="bg-[#FFE600]/10" borderColor="border-[#FFE600]" width="w-40"
                 />
             </div>
@@ -147,19 +147,28 @@ const Slide6 = () => {
              <div className="bg-green-500/5 border border-green-500/30 p-4 rounded-xl flex flex-col gap-3 w-52">
                 <div className="flex items-center gap-2 mb-2 border-b border-green-500/20 pb-2">
                     <Target size={18} className="text-green-400" />
-                    <span className="text-green-400 font-bold text-xs uppercase">Résultats (Test)</span>
+                    {/* Titre qui claque */}
+                    <span className="text-green-400 font-bold text-xs uppercase">Performance</span>
                 </div>
                 
+                {/* Métrique 1 : La Fiabilité */}
                 <div className="flex justify-between items-center">
-                    <span className="text-[10px] text-gray-400 uppercase">F1-Score</span>
+                    <span className="text-[10px] text-gray-400 uppercase font-bold">Qualité de l'Alerte (F1-score)</span>
                     <span className="text-xl font-bold text-white">72%</span>
                 </div>
+                {/* Barre de progression visuelle */}
                 <div className="w-full bg-gray-700 h-1 rounded-full overflow-hidden">
-                    <div className="bg-green-400 h-full w-[72%]"></div>
+                    <div className="bg-green-400 h-full w-[66%]"></div>
                 </div>
 
-                <div className="flex justify-between items-center mt-1">
-                    <span className="text-[10px] text-gray-400 uppercase">Lead Time</span>
+                {/* Métrique 2 : L'Anticipation */}
+                <div className="flex justify-between items-center mt-1 pt-2 border-t border-white/5">
+                    {/* On empile les deux textes avec exactement le même style */}
+                    <div className="flex flex-col leading-tight">
+                        <span className="text-[10px] text-gray-400 uppercase font-bold">Gain de Temps</span>
+                        <span className="text-[10px] text-gray-400 uppercase font-bold">(Lead Time)</span>
+                    </div>
+                    
                     <span className="text-xl font-bold text-white">11<span className="text-xs font-normal text-gray-400">min</span></span>
                 </div>
              </div>
