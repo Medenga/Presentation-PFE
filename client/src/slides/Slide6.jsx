@@ -154,7 +154,7 @@ const Slide6 = () => {
                 {/* Métrique 1 : La Fiabilité */}
                 <div className="flex justify-between items-center">
                     <span className="text-[10px] text-gray-400 uppercase font-bold">Qualité de l'Alerte (F1-score)</span>
-                    <span className="text-xl font-bold text-white">72%</span>
+                    <span className="text-xl font-bold text-white">66%</span>
                 </div>
                 {/* Barre de progression visuelle */}
                 <div className="w-full bg-gray-700 h-1 rounded-full overflow-hidden">
