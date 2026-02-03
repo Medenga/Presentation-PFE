@@ -12,7 +12,7 @@ const Slide3 = () => {
     >
       {/* TITLE */}
       <h3 className="text-white text-[38px] font-extrabold leading-tight max-w-5xl mx-auto text-center mb-8">
-        Positionnement stratégique
+        Etat de l'art
       </h3>
 
       <div className="flex-grow flex items-center justify-between gap-12">
