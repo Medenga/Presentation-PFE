@@ -1,140 +1,184 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
-  GraduationCap, 
-  Server, 
-  Database, 
-  Brain, 
-  Flag
+  CloudLightning, 
+  ServerCrash, 
+  Users, 
+  Eye, 
+  Activity, 
+  FileText, 
+  BrainCircuit, 
+  Target
 } from 'lucide-react';
 
-const Slide6 = () => {
-  return (
-    <motion.div 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      className="relative w-[1280px] h-[720px] bg-[#313130] text-white flex flex-col p-[60px_80px] overflow-hidden font-sans"
-    >
-      {/* Header - removed logos */}
-
-      {/* TITLE BLOCK */}
-      <div className="mb-10 border-l-4 border-[#FFE600] pl-6">
-        <div className="text-[#FFE600] text-[13px] font-bold tracking-[4px] uppercase mb-1">Protocole Expérimental</div>
-        <h1 className="text-[40px] font-bold">
-          De la <span className="text-white">Simulation</span> à la <span className="text-[#FFE600]">Validation Prédictive</span>
-        </h1>
-      </div>
-
-      {/* WORKFLOW CONTAINER */}
-      <div className="grid grid-cols-4 gap-4 items-stretch justify-center max-w-[1120px] mx-auto mt-8">
-        
-        {/* STEP 01 */}
-        <StepCard 
-          number="01" 
-          title="Génération" 
-          icon={<Server size={20} strokeWidth={0.5} />}
-          items={[
-            { label: "SUT", val: "Google Online Boutique" },
-            { label: "Charge", val: "Locust (50-300 users)" },
-            { label: "Chaos", val: "Pumba (Latence, CPU)" }
-          ]}
-          hTitle="Scénario"
-          hValue="Nominal vs Panne"
-        />
-
-        {/* STEP 02 */}
-        <StepCard 
-          number="02" 
-          title="Acquisition" 
-          icon={<Database size={20} strokeWidth={0.5} />}
-          items={[
-            { label: "Collecte", val: "Prometheus (Scrape 5s)" },
-            { label: "Métriques", val: "Système + App" },
-            { label: "Label", val: "0 (Sain) / 1 (Anomalie)" }
-          ]}
-          hTitle="Dataset"
-          hValue="Maint. Prédictive"
-        />
-
-        {/* STEP 03 */}
-        <StepCard 
-          number="03" 
-          title="Modélisation" 
-          icon={<Brain size={20} strokeWidth={0.5}/>}
-          items={[
-            { label: "Preproc.", val: "Nettoyage & Norm." },
-            { label: "Split", val: "70/15/15 (Train/Val/Test)" },
-            { label: "Modèles", val: "RF / LSTM / AE" }
-          ]}
-          hTitle="Comparaison"
-          hValue="3 Architectures"
-        />
-
-        {/* STEP 04 */}
-        <StepCard 
-          number="04" 
-          title="Validation" 
-          icon={<Flag size={20} strokeWidth={0.5} />}
-          items={[
-            { label: "Perf", val: "Score F1 > 0.8" },
-            { label: "Ops", val: "Lead Time > 2 min" },
-            { label: "Fiab.", val: "Minimiser Faux Pos." }
-          ]}
-          hTitle="Objectif"
-          hValue="Preuve de Valeur"
-        />
-
-      </div>
-
-      {/* FOOTER */}
-      {/* FOOTER HUD - Version Fixe avec Absolute */}
-      <div className="absolute bottom-0 left-0 w-full px-20 pb-10 z-20">
-        <div className="pt-4 border-t border-slate-200 flex justify-between items-center text-[10px] font-extrabold uppercase tracking-widest">
-          <div className="text-white">Numéro d'équipe: #PFE25-R-474</div>
-          <div className="text-white text-xs font-black">
-            06 <span className="text-ey-yellow">/</span> 10
-          </div>
-        </div>
-      </div>
-    </motion.div>
-  );
-};
-
-/* --- COMPOSANT INTERNE : CARTE D'ÉTAPE --- */
-
-const StepCard = ({ number, title, icon, items, hTitle, hValue }) => (
-  <div className="bg-white/[0.03] border border-white/10 p-6 rounded-[16px] flex flex-col backdrop-blur-sm relative group hover:border-[#FFE600]/30 transition-all">
-    {/* Card Header */}
-    <div className="flex justify-between items-center mb-6">
-      <div className="w-10 h-10 bg-[#FFE600]/10 rounded-lg flex items-center justify-center text-[#FFE600]">
-        {icon}
-      </div>
-      <span className="text-[24px] font-black text-white/10 group-hover:text-[#FFE600]/20 transition-colors">
-        {number}
-      </span>
+// Composant Box optimisé
+const ArchBox = ({ title, icon, details, color, bgColor, borderColor, width = "w-44" }) => (
+  <div className={`flex flex-col items-center p-3 rounded-xl border ${borderColor} ${bgColor} backdrop-blur-md ${width} shadow-lg z-10`}>
+    <div className={`p-1.5 rounded-full mb-2 ${color.replace('text-', 'bg-')}/10`}>
+      {icon}
     </div>
-
-    <h3 className="text-[20px] font-bold uppercase tracking-tight mb-4 text-white">
-      {title}
-    </h3>
-
-    {/* List Content */}
-    <ul className="space-y-3 mb-6 flex-grow">
-      {items.map((item, i) => (
-        <li key={i} className="text-[13px] leading-tight">
-          <strong className="text-[#FFE600] font-black uppercase tracking-tighter mr-1">{item.label} :</strong>
-          <span className="text-gray-400">{item.val}</span>
+    <h3 className={`font-bold text-[11px] uppercase mb-1.5 ${color} tracking-wider`}>{title}</h3>
+    <ul className="space-y-1 w-full">
+      {details.map((d, i) => (
+        <li key={i} className="text-[10px] text-gray-300 bg-black/30 px-1.5 py-0.5 rounded text-center truncate w-full">
+          {d}
         </li>
       ))}
     </ul>
-
-    {/* Highlight Box */}
-    <div className="mt-auto bg-white/[0.04] border border-white/5 p-3 rounded-xl text-center">
-      <div className="text-[10px] font-black uppercase tracking-widest text-white/30 mb-1">{hTitle}</div>
-      <div className="text-[13px] font-bold text-[#FFE600] uppercase italic">{hValue}</div>
-    </div>
   </div>
 );
+
+// Connecteur simple et droit
+const Line = ({ width = "w-8", color = "bg-white/10" }) => (
+  <div className={`h-[2px] ${width} ${color} flex items-center justify-center relative`}>
+      {/* Animation de particule */}
+      <motion.div 
+        animate={{ x: [-10, 40], opacity: [0, 1, 0] }}
+        transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
+        className={`w-1.5 h-1.5 rounded-full ${color.replace('bg-', 'bg-').replace('/10', '')} shadow-[0_0_5px_currentColor]`}
+      />
+  </div>
+);
+
+const Slide6 = () => {
+  return (
+    <div className="w-[1280px] h-[720px] bg-[#1a1a1a] text-white flex flex-col px-12 py-10 font-sans overflow-hidden relative">
+      
+      {/* HEADER */}
+      <div className="mb-6 flex justify-between items-end border-b border-white/10 pb-4">
+        <div>
+            <div className="text-[#FFE600] text-[10px] font-bold tracking-[4px] uppercase mb-1">Architecture Technique</div>
+            <h1 className="text-3xl font-bold">Le Pipeline <span className="text-[#FFE600]">Hybride</span></h1>
+        </div>
+        {/* Suppression du texte demandée : la div est vide ou retirée */}
+        <div className="text-right opacity-0 text-xs font-mono">
+            Placeholder
+        </div>
+      </div>
+
+      {/* --- GRID CONTAINER (Pour un alignement parfait) --- */}
+      <div className="flex-1 grid grid-cols-12 gap-2 items-center relative pb-10">
+        
+        {/* --- COLONNE 1 : INPUT (Gauche) --- */}
+        <div className="col-span-2 flex flex-col gap-4 items-center border-r border-white/5 pr-4 h-full justify-center">
+            <span className="text-gray-500 text-[10px] uppercase font-bold mb-4 tracking-widest">Environnement</span>
+            <ArchBox 
+              title="Google Boutique" 
+              icon={<CloudLightning size={16} className="text-red-400"/>}
+              details={["Cluster GKE", "Microservices"]}
+              color="text-red-400" bgColor="bg-red-500/5" borderColor="border-red-500/30"
+            />
+            <div className="flex gap-2">
+                <div className="p-2 bg-red-900/10 border border-red-500/20 rounded flex flex-col items-center w-20">
+                    <Users size={12} className="text-orange-400 mb-1"/>
+                    <span className="text-[9px] text-orange-400">Locust</span>
+                </div>
+                <div className="p-2 bg-red-900/10 border border-red-500/20 rounded flex flex-col items-center w-20">
+                    <ServerCrash size={12} className="text-red-400 mb-1"/>
+                    <span className="text-[9px] text-red-400">Chaos</span>
+                </div>
+            </div>
+        </div>
+
+        {/* --- COLONNE 2 : ACQUISITION --- */}
+        <div className="col-span-2 flex flex-col items-center justify-center relative">
+             <Line width="w-full" color="bg-gray-600" />
+             <div className="absolute bg-[#1a1a1a] p-2">
+                <ArchBox 
+                    title="Observabilité" 
+                    icon={<Eye size={18} className="text-purple-400"/>}
+                    details={["Agent Datadog", "Collecte CSV"]}
+                    color="text-purple-400" bgColor="bg-purple-500/5" borderColor="border-purple-500/30" width="w-36"
+                />
+             </div>
+        </div>
+
+        {/* --- COLONNE 3 : LE SPLIT (Traitement) --- */}
+        <div className="col-span-5 relative h-full">
+            {/* Ligne de séparation visuelle */}
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-8 h-[2px] bg-gray-700"></div>
+            
+            {/* BRANCHE HAUTE (MÉTRIQUES) */}
+            <div className="absolute top-[15%] left-8 right-0 flex items-center">
+                <div className="h-[2px] w-8 bg-blue-500/30 -ml-8 rotate-[-25deg] origin-right"></div>
+                <Line width="w-12" color="bg-blue-500/50" />
+                <ArchBox 
+                    title="Preprocessing Métriques" 
+                    icon={<Activity size={18} className="text-blue-400"/>}
+                    details={["Scaling Robust", "Fenêtre 10 min", "Dérivées (Vitesse)"]}
+                    color="text-blue-400" bgColor="bg-blue-500/5" borderColor="border-blue-500/30" width="w-48"
+                />
+                <Line width="w-16" color="bg-blue-500/50" />
+            </div>
+
+            {/* BRANCHE BASSE (LOGS) */}
+            <div className="absolute bottom-[15%] left-8 right-0 flex items-center">
+                <div className="h-[2px] w-8 bg-yellow-500/30 -ml-8 rotate-[25deg] origin-right"></div>
+                <Line width="w-12" color="bg-yellow-500/50" />
+                <ArchBox 
+                    title="Preprocessing Logs" 
+                    icon={<FileText size={18} className="text-yellow-400"/>}
+                    details={["Nettoyage Regex", "TF-IDF Vectorizer", "Top-30 Features"]}
+                    color="text-yellow-400" bgColor="bg-yellow-500/5" borderColor="border-yellow-500/30" width="w-48"
+                />
+                <Line width="w-16" color="bg-yellow-500/50" />
+            </div>
+
+            {/* LE COEUR (FUSION) */}
+            <div className="absolute top-1/2 -translate-y-1/2 right-0 z-20">
+                <ArchBox 
+                    title="FUSION HYBRIDE (GRU)" 
+                    icon={<BrainCircuit size={24} className="text-[#FFE600]"/>}
+                    details={["Input: 40 dims", "Unités: 128 + 64", "Dropout: 0.3"]}
+                    color="text-[#FFE600]" bgColor="bg-[#FFE600]/10" borderColor="border-[#FFE600]" width="w-40"
+                />
+            </div>
+
+            {/* Lignes de convergence vers le coeur */}
+            <svg className="absolute inset-0 pointer-events-none w-full h-full z-0">
+                <path d="M 280 120 C 350 120, 350 220, 420 280" fill="none" stroke="#3b82f6" strokeWidth="1" strokeDasharray="4 4" opacity="0.5" />
+                <path d="M 280 440 C 350 440, 350 340, 420 280" fill="none" stroke="#eab308" strokeWidth="1" strokeDasharray="4 4" opacity="0.5" />
+            </svg>
+        </div>
+
+        {/* --- COLONNE 4 : OUTPUT (Droite) --- */}
+        <div className="col-span-3 flex items-center justify-end pl-4 relative">
+             <Line width="w-16" color="bg-green-500/50" />
+             <div className="bg-green-500/5 border border-green-500/30 p-4 rounded-xl flex flex-col gap-3 w-52">
+                <div className="flex items-center gap-2 mb-2 border-b border-green-500/20 pb-2">
+                    <Target size={18} className="text-green-400" />
+                    <span className="text-green-400 font-bold text-xs uppercase">Résultats (Test)</span>
+                </div>
+                
+                <div className="flex justify-between items-center">
+                    <span className="text-[10px] text-gray-400 uppercase">F1-Score</span>
+                    <span className="text-xl font-bold text-white">72%</span>
+                </div>
+                <div className="w-full bg-gray-700 h-1 rounded-full overflow-hidden">
+                    <div className="bg-green-400 h-full w-[72%]"></div>
+                </div>
+
+                <div className="flex justify-between items-center mt-1">
+                    <span className="text-[10px] text-gray-400 uppercase">Lead Time</span>
+                    <span className="text-xl font-bold text-white">11<span className="text-xs font-normal text-gray-400">min</span></span>
+                </div>
+             </div>
+        </div>
+
+      </div>
+
+      {/* FOOTER OFFICIEL */}
+      <div className="absolute bottom-0 left-0 w-full px-20 pb-10 z-20">
+        <div className="pt-4 border-t border-white/20 flex justify-between items-center text-[10px] font-extrabold uppercase tracking-widest">
+          <div className="text-white">Numéro d'équipe: #PFE25-R-474</div>
+          <div className="text-white text-xs font-black">
+            06 <span className="text-[#FFE600]">/</span> 10
+          </div>
+        </div>
+      </div>
+
+    </div>
+  );
+};
 
 export default Slide6;
