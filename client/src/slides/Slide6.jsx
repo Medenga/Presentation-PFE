@@ -13,15 +13,15 @@ import {
 
 // Composant Box optimisé
 const ArchBox = ({ title, icon, details, color, bgColor, borderColor, width = "w-44" }) => (
-  // Note: On garde le fond des boîtes en sombre (#1a1a1a) pour le contraste avec le fond plus clair
-  <div className={`flex flex-col items-center p-3 rounded-xl border ${borderColor} ${bgColor} backdrop-blur-md ${width} shadow-lg z-10 bg-[#1a1a1a]/90`}>
+  <div className={`flex flex-col items-center p-3 rounded-xl border ${borderColor} ${bgColor} backdrop-blur-md ${width} shadow-lg z-10`}>
     <div className={`p-1.5 rounded-full mb-2 ${color.replace('text-', 'bg-')}/10`}>
       {icon}
     </div>
     <h3 className={`font-bold text-[11px] uppercase mb-1.5 ${color} tracking-wider`}>{title}</h3>
     <ul className="space-y-1 w-full">
       {details.map((d, i) => (
-        <li key={i} className="text-[10px] text-gray-300 bg-black/30 px-1.5 py-0.5 rounded text-center truncate w-full">
+        // MODIFICATION ICI : bg-white/5 au lieu de bg-black/30 pour matcher la Slide 3
+        <li key={i} className="text-[10px] text-gray-300 bg-white/5 px-1.5 py-0.5 rounded text-center truncate w-full border border-white/5">
           {d}
         </li>
       ))}
@@ -43,12 +43,9 @@ const Line = ({ width = "w-8", color = "bg-white/10" }) => (
 
 const Slide6 = () => {
   return (
-    // CHANGEMENT ICI : bg-[#313130] au lieu de #1a1a1a pour matcher la Slide 5
-    <div className="w-[1280px] h-[720px] bg-[#313130] text-white flex flex-col px-12 py-10 font-sans overflow-hidden relative">
+    // MODIFICATION ICI : bg-pres-grey au lieu de bg-[#1a1a1a]
+    <div className="w-[1280px] h-[720px] bg-pres-grey text-white flex flex-col px-12 py-10 font-sans overflow-hidden relative">
       
-      {/* Fine line top (Ajouté pour cohérence avec Slide 5 si besoin, sinon optionnel) */}
-      <div className="absolute top-0 left-0 w-full h-[4px] bg-[#FFE600]/90" />
-
       {/* HEADER */}
       <div className="mb-6 flex justify-between items-end border-b border-white/10 pb-4">
         <div>
@@ -87,8 +84,7 @@ const Slide6 = () => {
         {/* --- COLONNE 2 : ACQUISITION --- */}
         <div className="col-span-2 flex flex-col items-center justify-center relative">
              <Line width="w-full" color="bg-gray-600" />
-             {/* CHANGEMENT ICI : bg-[#313130] pour le cache derrière la boite */}
-             <div className="absolute bg-[#313130] p-2">
+             <div className="absolute bg-pres-grey p-2"> {/* Match background color here too */}
                 <ArchBox 
                     title="Observabilité" 
                     icon={<Eye size={18} className="text-purple-400"/>}
@@ -100,6 +96,7 @@ const Slide6 = () => {
 
         {/* --- COLONNE 3 : LE SPLIT (Traitement) --- */}
         <div className="col-span-5 relative h-full">
+            {/* Ligne de séparation visuelle */}
             <div className="absolute left-0 top-1/2 -translate-y-1/2 w-8 h-[2px] bg-gray-700"></div>
             
             {/* BRANCHE HAUTE (MÉTRIQUES) */}
@@ -138,7 +135,7 @@ const Slide6 = () => {
                 />
             </div>
 
-            {/* Lignes de convergence */}
+            {/* Lignes de convergence vers le coeur */}
             <svg className="absolute inset-0 pointer-events-none w-full h-full z-0">
                 <path d="M 280 120 C 350 120, 350 220, 420 280" fill="none" stroke="#3b82f6" strokeWidth="1" strokeDasharray="4 4" opacity="0.5" />
                 <path d="M 280 440 C 350 440, 350 340, 420 280" fill="none" stroke="#eab308" strokeWidth="1" strokeDasharray="4 4" opacity="0.5" />
@@ -148,23 +145,23 @@ const Slide6 = () => {
         {/* --- COLONNE 4 : OUTPUT (Droite) --- */}
         <div className="col-span-3 flex items-center justify-end pl-4 relative">
              <Line width="w-16" color="bg-green-500/50" />
-             {/* Changement : fond sombre pour contraste avec le nouveau gris de fond */}
-             <div className="bg-[#1a1a1a]/80 border border-green-500/30 p-4 rounded-xl flex flex-col gap-3 w-52 shadow-lg backdrop-blur-md">
+             <div className="bg-green-500/5 border border-green-500/30 p-4 rounded-xl flex flex-col gap-3 w-52">
                 <div className="flex items-center gap-2 mb-2 border-b border-green-500/20 pb-2">
                     <Target size={18} className="text-green-400" />
                     <span className="text-green-400 font-bold text-xs uppercase">Performance</span>
                 </div>
                 
-                {/* Métrique 1 */}
+                {/* Métrique 1 : La Fiabilité */}
                 <div className="flex justify-between items-center">
                     <span className="text-[10px] text-gray-400 uppercase font-bold">Qualité de l'Alerte (F1-score)</span>
                     <span className="text-xl font-bold text-white">66%</span>
                 </div>
+                {/* Barre de progression visuelle */}
                 <div className="w-full bg-gray-700 h-1 rounded-full overflow-hidden">
                     <div className="bg-green-400 h-full w-[66%]"></div>
                 </div>
 
-                {/* Métrique 2 */}
+                {/* Métrique 2 : L'Anticipation */}
                 <div className="flex justify-between items-center mt-1 pt-2 border-t border-white/5">
                     <div className="flex flex-col leading-tight">
                         <span className="text-[10px] text-gray-400 uppercase font-bold">Gain de Temps</span>
