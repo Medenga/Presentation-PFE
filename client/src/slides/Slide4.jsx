@@ -6,14 +6,14 @@ const Slide4 = () => {
   const objectives = [
     {
       id: "01",
-      title: "Benchmark Modèles",
-      icon: <Cpu size={40} />,
+      title: "Dataset Dédié",
+      icon: <Database size={40} />,
       desc: "Génération de données via un **banc d'essai** système/app.",
     },
     {
       id: "02",
-      title: "Dataset Dédié",
-      icon: <Database size={40} />,
+      title: "Benchmark Modèles",
+      icon: <Cpu size={40} />,
       desc: "Comparaison **ML**, **DL** et **Hybride** pour la performance.",
     },
     {
