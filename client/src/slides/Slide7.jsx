@@ -1,194 +1,171 @@
 import React from 'react';
 import {
-  Store,
-  Database,
-  LayoutDashboard,
+  TrendingUp,
   BrainCircuit,
-  Bug,
-  Eye,
-  ArrowRight,
-  Activity,
-  Server,
-  FileSpreadsheet,
-  Bot,
-  Sparkles
+  GitMerge,
+  Zap,
+  Calculator,
+  Binary,
+  MessageSquareCode,
+  Layers,
+  Timer,
+  LineChart
 } from 'lucide-react';
 
-// Composant Boîte : Hauteur ~260px, Textes Blancs
-const CompactBox = ({ title, icon, subtitle, color, bgColor, borderColor, details }) => (
-  <div className={`relative flex flex-col p-4 rounded-xl border ${borderColor} ${bgColor} backdrop-blur-md w-[150px] h-[260px] shadow-lg transition-transform hover:-translate-y-2 z-10`}>
+// Card Structure : Polices augmentées
+const Card = ({ title, subtitle, icon, color, borderColor, children, isFocus = false }) => (
+  <div className={`relative h-full flex flex-col p-6 rounded-xl border ${borderColor} bg-[#1a1a1a] backdrop-blur-md shadow-xl overflow-hidden ${isFocus ? 'ring-1 ring-[#FFE600]/30 bg-[#FFE600]/5' : ''}`}>
+
     {/* Header */}
-    <div className="flex flex-col items-center mb-4 text-center h-20 justify-center">
-      <div className={`mb-3 p-3 rounded-full ${color.replace('text-', 'bg-')}/10`}>
+    <div className="flex items-center gap-4 mb-5 shrink-0 border-b border-white/10 pb-4">
+      <div className={`p-3 rounded-lg ${color.replace('text-', 'bg-')}/10`}>
         {React.cloneElement(icon, { size: 28 })}
       </div>
-      <h3 className={`font-black text-[11px] uppercase leading-tight ${color}`}>{title}</h3>
-      {subtitle && <span className="text-[9px] text-white font-bold mt-1">{subtitle}</span>}
+      <div>
+        <h3 className={`font-black text-[16px] uppercase leading-none ${color}`}>{title}</h3>
+        <p className="text-[15px] text-white font-bold mt-2">{subtitle}</p>
+      </div>
     </div>
 
-    {/* Divider */}
-    <div className={`h-[1px] w-full ${color.replace('text-', 'bg-')}/20 mb-4`}></div>
-
-    {/* Details (Textes blancs) */}
-    <div className="flex flex-col gap-3 flex-1 justify-center">
-      {details.map((d, i) => (
-        <div key={i} className="bg-black/40 rounded px-2 py-1.5 border border-white/5 text-center shadow-sm">
-          <span className="text-[10px] font-medium text-white block leading-tight">{d}</span>
-        </div>
-      ))}
+    {/* Content */}
+    <div className="flex-1 flex flex-col gap-4">
+      {children}
     </div>
   </div>
 );
 
-// Flèche Statique Large
-const SolidArrow = ({ label }) => (
-  <div className="flex flex-col items-center justify-center w-[60px] mx-1 shrink-0">
-    <span className="text-[9px] font-black uppercase mb-1.5 text-[#FFE600] tracking-widest whitespace-nowrap">
-      {label}
-    </span>
-    <div className="relative w-full flex items-center">
-      <div className="h-[4px] w-full bg-[#FFE600] rounded-l-sm shadow-[0_0_10px_rgba(255,230,0,0.2)]"></div>
-      <ArrowRight size={24} className="text-[#FFE600] -ml-2.5" strokeWidth={4} />
-    </div>
-  </div>
-);
-
-const Slide7FinalClean = () => {
+const SlideComparisonLargeWhite = () => {
   return (
-    <div className="w-[1280px] h-[720px] bg-[#1a1a1a] text-white flex flex-col px-8 py-10 font-sans overflow-hidden relative">
+    <div className="w-[1280px] h-[720px] bg-pres-grey text-white flex flex-col px-10 py-8 font-sans overflow-hidden relative">
 
       {/* HEADER */}
-      <div className="mb-12 flex justify-between items-end border-b border-white/10 pb-6 mx-4">
+      <div className="flex justify-between items-end border-b border-white/10 pb-5 mx-2 shrink-0 h-[80px] mb-8">
         <div>
-          <div className="text-[#FFE600] text-[12px] font-bold tracking-[4px] uppercase mb-2">Pipeline End-to-End</div>
-          <h1 className="text-4xl font-black uppercase tracking-tighter">Architecture <span className="text-[#FFE600]">Technique</span></h1>
+          <div className="text-[#FFE600] text-[10px] font-bold tracking-[4px] uppercase mb-1"></div>
+          <h1 className="text-3xl font-bold">Comparatif des <span className="text-[#FFE600]">Modèles IA</span></h1>
         </div>
-        {/* Badge retiré ici */}
+        <div className="flex gap-2">
+
+        </div>
       </div>
 
-      {/* --- FLUX LINEAIRE --- */}
-      <div className="flex-1 flex items-center justify-center relative px-0">
+      {/* --- GRID CONTENT --- */}
+      <div className="grid grid-cols-3 gap-6 px-2 h-[500px] items-start">
 
-        {/* Ligne de fond */}
-        <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-white/5 -z-0"></div>
+        {/* COL 1: BASELINE (Extrapolation Linéaire) */}
+        <div className="opacity-90 h-full flex flex-col">
 
-        {/* 1. SCÉNARIOS */}
-        <CompactBox
-          title="Nouveaux Scénarios"
-          subtitle="CHARGE & CHAOS"
-          icon={<Bug />}
-          color="text-orange-400"
-          bgColor="bg-orange-500/5"
-          borderColor="border-orange-500/30"
-          details={["Scripts Locust", "Scripts JS", "Injection Failles"]}
-        />
-
-        <SolidArrow label="Injection" />
-
-        {/* 2. SYSTEME CIBLE (BOUTIQUE) */}
-        <div className="relative z-20 hover:-translate-y-2 transition-transform duration-300 mx-1">
-          <div className="absolute inset-0 bg-[#FFE600]/10 blur-2xl rounded-full"></div>
-          <div className="bg-[#1a1a1a] border-2 border-[#FFE600] rounded-2xl p-5 w-[170px] h-[290px] flex flex-col shadow-2xl relative">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#FFE600] text-black text-[10px] font-black px-3 py-0.5 rounded uppercase">Cible</div>
-            <div className="flex flex-col items-center justify-center h-32 mb-4">
-              <Store size={56} className="text-[#FFE600] mb-3 drop-shadow-lg" />
-              <span className="text-[12px] font-black uppercase text-center leading-tight tracking-tight">Google Online<br />Boutique</span>
-            </div>
-            <div className="mt-auto grid grid-cols-1 gap-3 w-full">
-              <div className="bg-white/10 p-2.5 rounded flex items-center justify-center gap-2">
-                <Server size={16} className="text-white" />
-                <span className="text-[12px] font-bold text-white">Microservices</span>
+          <Card
+            title="Baseline"
+            subtitle="Extrapolation Linéaire"
+            icon={<LineChart />}
+            color="text-orange-400"
+            borderColor="border-orange-500/30"
+          >
+            <div className="flex-1 flex flex-col gap-4">
+              <div className="bg-white/5 p-4 rounded-lg border border-white/5">
+                <div className="flex items-center gap-2 mb-2">
+                  <Calculator size={16} className="text-orange-400" />
+                  <span className="text-[13px] font-bold text-white">Principe (Forecast)</span>
+                </div>
+                <p className="text-[14px] text-white leading-relaxed text-justify">
+                  Analyse une <b>fenêtre d'apprentissage</b> récente pour calculer la tendance actuelle. Projette ensuite cette ligne vers le futur ($y = ax + b$).
+                </p>
               </div>
-              <div className="bg-white/10 p-2.5 rounded flex items-center justify-center gap-2">
-                <Activity size={16} className="text-white" />
-                <span className="text-[12px] font-bold text-white">Docker</span>
+
+              <div className="bg-black/20 p-4 rounded-lg border border-white/5 mt-auto">
+                <span className="text-[12px] text-white uppercase font-bold block mb-1">Limite Principale</span>
+                <p className="text-[14px] text-white leading-snug">
+                  Suppose que le futur est une continuation directe du présent. <b>Incapable d'anticiper</b> les variations saisonnières ou non-linéaires.
+                </p>
               </div>
             </div>
-          </div>
+          </Card>
         </div>
 
-        <SolidArrow label="Monitoring" />
+        {/* COL 2: DEEP LEARNING (SÉPARÉ) */}
+        <div className="h-full flex flex-col">
 
-        {/* 3. DATADOG */}
-        <CompactBox
-          title="Datadog"
-          subtitle="RÉCUPÉRATIONS DONNÉES"
-          icon={<Eye />}
-          color="text-purple-400"
-          bgColor="bg-purple-500/5"
-          borderColor="border-purple-500/30"
-          details={["Métriques Systèmes", "Requêtes HTTP", "Logs Applicatifs"]}
-        />
+          <Card
+            title="Réseaux Récurrents"
+            subtitle="Mémoire Séquentielle"
+            icon={<BrainCircuit />}
+            color="text-blue-400"
+            borderColor="border-blue-500/30"
+          >
+            <div className="flex-1 flex flex-col gap-4">
 
-        <SolidArrow label="Streaming" />
+              {/* BLOC LSTM */}
+              <div className="bg-blue-500/10 p-4 rounded-lg border border-blue-500/20 flex-1 flex flex-col justify-center relative overflow-hidden">
 
-        {/* 4. MODELE IA */}
-        <CompactBox
-          title="Modèles Deep Learning"
-          subtitle="ANALYSE PRÉDICTIVE"
-          icon={<BrainCircuit />}
-          color="text-[#FFE600]"
-          bgColor="bg-[#FFE600]/10"
-          borderColor="border-[#FFE600]"
-          details={["GRU", "GRU + NLP", "LSTM"]}
-        />
-
-        <SolidArrow label="Résultats" />
-
-        {/* 5. DATABASE */}
-        <CompactBox
-          title="MongoDB"
-          subtitle="STOCKAGE"
-          icon={<Database />}
-          color="text-green-400"
-          bgColor="bg-green-500/5"
-          borderColor="border-green-500/30"
-          details={["Cluster MongoDB", "Historique Audit"]}
-        />
-
-        <SolidArrow label="Rendu" />
-
-        {/* 6. DASHBOARD */}
-        <div className="w-[150px] h-[260px] bg-black/40 border border-blue-500/30 rounded-xl overflow-hidden flex flex-col shadow-lg z-10 hover:-translate-y-2 transition-transform">
-
-          {/* Header */}
-          <div className="bg-blue-500/10 px-4 py-3 border-b border-blue-500/20 flex justify-between items-center h-[50px] shrink-0">
-            <span className="text-[10px] font-bold text-blue-400 uppercase">DASHBOARD FINAL</span>
-            <LayoutDashboard size={16} className="text-blue-400" />
-          </div>
-
-          {/* Body */}
-          <div className="p-3 flex flex-col gap-4 flex-1 justify-center w-full">
-
-            {/* INFO 1 : Sauvegarde CSV */}
-            <div className="bg-white/5 p-2.5 rounded-lg border border-white/5 flex items-center gap-3 w-full group">
-              <div className="bg-green-500/20 p-2 rounded-lg shrink-0 flex items-center justify-center group-hover:bg-green-500/30 transition-colors">
-                <FileSpreadsheet size={18} className="text-green-400" />
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-[15px] font-black text-white">LSTM</span>
+                </div>
+                <p className="text-[14px] text-white leading-snug relative z-10">
+                  Architecture complexe (3 portes). Idéale pour capturer des <b>dépendances longues</b> dans l'historique des métriques.
+                </p>
               </div>
-              <div className="flex flex-col min-w-0">
-                <span className="text-[8px] text-white uppercase font-bold">Sauvegarde</span>
-                <span className="text-[10px] font-bold text-white leading-tight">Fichier CSV</span>
+
+              {/* BLOC GRU */}
+              <div className="bg-indigo-500/10 p-4 rounded-lg border border-indigo-500/20 flex-1 flex flex-col justify-center relative overflow-hidden">
+
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-[15px] font-black text-white">GRU</span>
+                </div>
+                <p className="text-[14px] text-white leading-snug relative z-10">
+                  Version optimisée (2 portes). Plus légère et rapide à entraîner, parfaite pour l'inférence en <b>temps réel</b> sur nos flux de données.
+                </p>
               </div>
+
             </div>
+          </Card>
+        </div>
 
-            {/* Lien visuel */}
-            <div className="flex justify-center -my-2 shrink-0">
-              <div className="h-4 w-[1px] bg-blue-500/30"></div>
-            </div>
+        {/* COL 3: HYBRIDE (NLP) */}
+        <div className="h-full flex flex-col z-10">
 
-            {/* INFO 2 : Analyse LLM */}
-            <div className="bg-gradient-to-br from-blue-600/10 to-purple-600/10 p-2.5 rounded-lg border border-blue-500/30 flex items-center gap-3 relative w-full group">
-              <div className="bg-blue-500/20 p-2 rounded-lg relative shrink-0 flex items-center justify-center group-hover:bg-blue-500/30 transition-colors">
-                <Bot size={18} className="text-blue-300" />
-                <Sparkles size={10} className="text-yellow-300 absolute -top-1.5 -right-1.5" />
+          <Card
+            title="Hybride GRU + Natural Language Processing (NLP)"
+            subtitle="Fusion Multimodale"
+            icon={<GitMerge />}
+            color="text-[#FFE600]"
+            borderColor="border-[#FFE600]"
+            isFocus={true}
+          >
+            <div className="flex-1 flex flex-col gap-3">
+
+              {/* Explication NLP */}
+              <div className="bg-black/40 p-4 rounded-lg border border-[#FFE600]/20">
+                <div className="flex items-center gap-2 mb-3">
+                  <MessageSquareCode size={16} className="text-[#FFE600]" />
+                  <span className="text-[15px] font-bold text-white uppercase">Traitement NLP des Logs</span>
+                </div>
+                <ul className="space-y-3">
+                  <li className="flex gap-3 text-[14px] text-white">
+                    <span className="text-[#FFE600] font-bold text-[14px]">1.</span>
+                    <span><b>Tokenisation :</b> Nettoyage des logs (suppression dates/IPs) pour garder le sens sémantique.</span>
+                  </li>
+                  <li className="flex gap-3 text-[14px] text-white">
+                    <span className="text-[#FFE600] font-bold text-[14px]">2.</span>
+                    <span><b>Embedding :</b> Transformation du texte en vecteur numérique dense.</span>
+                  </li>
+                </ul>
               </div>
-              <div className="flex flex-col min-w-0 z-10">
-                <span className="text-[8px] text-white uppercase font-bold">Interprétation</span>
-                <span className="text-[10px] font-bold text-white leading-tight">Analyse LLM</span>
-              </div>
-            </div>
 
-          </div>
+              {/* Explication Fusion */}
+              <div className="bg-black/40 p-4 rounded-lg border border-white/10 mt-1">
+                <div className="flex items-center gap-2 mb-2">
+                  <Binary size={16} className="text-blue-400" />
+                  <span className="text-[15px] font-bold text-white uppercase">Fusion & Impact</span>
+                </div>
+                <p className="text-[14px] text-white leading-snug mb-3">
+                  Le vecteur de logs est <b>concaténé</b> avec les métriques numériques avant d'entrer dans le GRU.
+                </p>
+
+              </div>
+
+            </div>
+          </Card>
         </div>
 
       </div>
@@ -207,4 +184,4 @@ const Slide7FinalClean = () => {
   );
 };
 
-export default Slide7FinalClean;
+export default SlideComparisonLargeWhite;
