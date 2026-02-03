@@ -39,7 +39,7 @@ const Slide4 = () => {
             Question de recherche
           </div>
           <h1 className="text-white text-[36px] font-extrabold leading-tight max-w-4xl mx-auto">
-            Comment transformer cet audit statique en un système capable d'anticiper les défaillances avant qu'elles ne soient perçues par l'utilisateur ?
+            Le passage de la statistique au Deep Learning permet-il d'atteindre une exhaustivité de détection compatible avec les exigences de l'audit ?
           </h1>
         </div>
 
