@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const Slide6 = () => {
+const Slide_template = () => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -17,7 +17,7 @@ const Slide6 = () => {
         <div className="pt-4 border-t border-white/30 flex justify-between items-center text-[11px] font-extrabold uppercase tracking-widest text-white">
           <div>Numéro d&apos;équipe: #PFE25-R-474</div>
           <div className="text-sm font-black">
-            07 <span className="text-ey-yellow">/</span> 13
+            12 <span className="text-ey-yellow">/</span> 13
           </div>
         </div>
       </div>
@@ -25,4 +25,4 @@ const Slide6 = () => {
   );
 };
 
-export default Slide6;
+export default Slide_template;

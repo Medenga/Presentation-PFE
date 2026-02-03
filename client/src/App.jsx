@@ -13,10 +13,14 @@ import Slide7 from './slides/Slide7';
 import Slide8 from './slides/Slide8';
 import Slide9 from './slides/Slide9';
 import Slide10 from './slides/Slide10';
+import Slide11 from './slides/Slide11';
+import Slide12 from './slides/Slide12';
+import Slide13 from './slides/Slide13';
+import Slide14 from './slides/Slide_template';
 import Simulation from './slides/Simulation';
 import NavigationControls from './components/NavigationControls';
 
-const slides = ["/", "/slide2", "/slide3", "/slide4", "/slide5", "/slide6", "/slide7", "/slide8", "/slide9", "/slide10"];
+const slides = ["/", "/slide2", "/slide3", "/slide4", "/slide5", "/slide6", "/slide7", "/slide8", "/slide9", "/slide10", "/slide11", "/slide12", "/slide13", "/slide14"];
 
 // --- COMPOSANT DE MISE À L'ÉCHELLE (Anti-coupure) ---
 const ScaleWrapper = ({ children }) => {
@@ -110,6 +114,10 @@ const AppContent = () => {
           <Route path="/slide8" element={<Slide8 />} />
           <Route path="/slide9" element={<Slide9 />} />
           <Route path="/slide10" element={<Slide10 />} />
+          <Route path="/slide11" element={<Slide11 />} />
+          <Route path="/slide12" element={<Slide12 />} />
+          <Route path="/slide13" element={<Slide13 />} />
+          <Route path="/slide14" element={<Slide14 />} />
           <Route path="/simulation" element={<Simulation />} />
         </Routes>
       </AnimatePresence>
