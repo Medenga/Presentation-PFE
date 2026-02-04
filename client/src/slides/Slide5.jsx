@@ -20,7 +20,7 @@ const ArchBox = ({ title, icon, details, color, bgColor, borderColor, width = "w
     <h3 className={`font-bold text-[11px] uppercase mb-1.5 ${color} tracking-wider`}>{title}</h3>
     <ul className="space-y-1 w-full">
       {details.map((d, i) => (
-        <li key={i} className="text-[10px] text-gray-300 bg-white/5 px-1.5 py-0.5 rounded text-center truncate w-full border border-white/5">
+        <li key={i} className="text-[11px] text-white bg-white/5 px-1.5 py-0.5 rounded text-center truncate w-full border border-white/5">
           {d}
         </li>
       ))}
@@ -60,7 +60,7 @@ const Slide5 = () => {
         
         {/* --- COLONNE 1 : INPUT (Gauche) --- */}
         <div className="col-span-2 flex flex-col gap-4 items-center border-r border-white/5 pr-4 h-full justify-center">
-            <span className="text-gray-500 text-[10px] uppercase font-bold mb-4 tracking-widest">Environnement</span>
+            <span className="text-white text-xs uppercase font-bold mb-4 tracking-widest">Environnement</span>
             <ArchBox 
               title="Google Boutique" 
               icon={<CloudLightning size={16} className="text-red-400"/>}
@@ -81,7 +81,6 @@ const Slide5 = () => {
 
         {/* --- COLONNE 2 : ACQUISITION --- */}
         <div className="col-span-2 flex flex-col items-center justify-center relative">
-             {/* TRAIT QUI RELIE VERS GOOGLE BOUTIQUE */}
              <div className="absolute left-0 top-1/2 -translate-x-full -translate-y-1/2">
                 <Line width="w-12" color="bg-gray-400" />
              </div>
@@ -125,17 +124,37 @@ const Slide5 = () => {
                 <Line width="w-16" color="bg-yellow-500/50" />
             </div>
 
-            {/* LE COEUR (FUSION) */}
+            {/* LE COEUR (COMPARATIF) */}
             <div className="absolute top-1/2 -translate-y-1/2 right-0 z-20">
                 <ArchBox 
                     title="BENCHMARK MODELES" 
                     icon={<BrainCircuit size={24} className="text-[#FFE600]"/>}
-                    details={["Long-Short Term Memory", "Gated Recurrent Unit", "GRU + NLP"]}
+                    details={["LSTM", "GRU", "Hybride (GRU + NLP)"]}
                     color="text-[#FFE600]" bgColor="bg-[#FFE600]/10" borderColor="border-[#FFE600]" width="w-40"
                 />
             </div>
-            
-            {/* J'ai supprimé le bloc <svg> des pointillés ici */}
+
+            {/* --- LEXIQUE TECHNIQUE (ORDRE LOGIQUE & TEXTE PLUS GRAND) --- */}
+            <div className="absolute bottom-0 left-0 right-0 flex justify-center pb-2">
+                <div className="flex gap-4 px-5 py-2.5 bg-black/40 rounded-full border border-white/10 backdrop-blur-sm shadow-xl w-max whitespace-nowrap">
+                    {/* 1. TF-IDF (Preprocessing - Premier dans la chaine) */}
+                    <div className="text-[11px] text-white flex items-center gap-1">
+                        <span className="text-[#FFE600] font-bold">TF-IDF:</span> Term Frequency-Inverse Document Frequency
+                    </div>
+                     {/* 2. LSTM (Modèle) */}
+                    <div className="text-[11px] text-white flex items-center gap-1">
+                        <span className="text-[#FFE600] font-bold">LSTM:</span> Long Short-Term Memory
+                    </div>
+                     {/* 3. GRU (Modèle) */}
+                    <div className="text-[11px] text-white flex items-center gap-1">
+                        <span className="text-[#FFE600] font-bold">GRU:</span> Gated Recurrent Unit
+                    </div>
+                     {/* 4. NLP (Domaine) */}
+                    <div className="text-[11px] text-white flex items-center gap-1">
+                        <span className="text-[#FFE600] font-bold">NLP:</span> Natural Language Processing
+                    </div>
+                </div>
+            </div>
             
         </div>
 
@@ -148,24 +167,23 @@ const Slide5 = () => {
                     <span className="text-green-400 font-bold text-xs uppercase">Performance</span>
                 </div>
                 
-                {/* Métrique 1 : La Fiabilité */}
+                {/* Métrique 1 */}
                 <div className="flex justify-between items-center">
-                    <span className="text-[10px] text-gray-400 uppercase font-bold">Qualité de l'Alerte (F1-score)</span>
+                    <span className="text-[10px] text-white uppercase font-bold">Qualité de l'Alerte (F1-score)</span>
                     <span className="text-xl font-bold text-white">66%</span>
                 </div>
-                {/* Barre de progression visuelle */}
                 <div className="w-full bg-gray-700 h-1 rounded-full overflow-hidden">
                     <div className="bg-green-400 h-full w-[66%]"></div>
                 </div>
 
-                {/* Métrique 2 : L'Anticipation */}
+                {/* Métrique 2 */}
                 <div className="flex justify-between items-center mt-1 pt-2 border-t border-white/5">
                     <div className="flex flex-col leading-tight">
-                        <span className="text-[10px] text-gray-400 uppercase font-bold">Gain de Temps</span>
-                        <span className="text-[10px] text-gray-400 uppercase font-bold">(Lead Time)</span>
+                        <span className="text-[10px] text-white uppercase font-bold">Gain de Temps</span>
+                        <span className="text-[10px] text-white uppercase font-bold">(Lead Time)</span>
                     </div>
                     
-                    <span className="text-xl font-bold text-white">11<span className="text-xs font-normal text-gray-400">min</span></span>
+                    <span className="text-xl font-bold text-white">11<span className="text-xs font-normal text-white">min</span></span>
                 </div>
              </div>
         </div>
