@@ -54,7 +54,7 @@ const Slide4 = () => {
               <div className="text-[#FFE600] mb-6 opacity-80">{obj.icon}</div>
               
               <div className="bg-[#FFE600] px-4 py-1 rounded-md text-black font-black text-[13px] mb-5">
-                OBJ {obj.id}
+                OBJECTIF {obj.id}
               </div>
 
               <h3 className="text-[26px] font-bold mb-4 uppercase tracking-tight text-white leading-tight">
