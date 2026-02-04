@@ -68,7 +68,7 @@ const Slide3 = () => {
               Limite normative
             </h4>
             <p className="text-[19px] text-gray-300 leading-relaxed font-medium">
-              "L’audit constate la conformité <span className="text-white">a posteriori</span>, il ne prédit pas la panne."
+              L’audit constate la conformité <span className="text-white">a posteriori</span>, il ne prédit pas la panne.
             </p>
           </div>
 
@@ -77,7 +77,7 @@ const Slide3 = () => {
               Le piège de l’AIOps
             </h4>
             <p className="text-[19px] text-gray-300 leading-relaxed font-medium">
-              "La <span className="text-white">boîte noire</span> mathématique est incompatible avec la preuve d’audit."
+              La <span className="text-white">boîte noire</span> mathématique est incompatible avec la preuve d’audit.
             </p>
           </div>
 
