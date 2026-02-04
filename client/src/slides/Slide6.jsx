@@ -1,16 +1,107 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { Shield, Activity, Server, Database, Layers, Clock, Globe, Cpu } from 'lucide-react';
 
 const Slide6 = () => {
+  const metricsInfra = [
+    "CPU Usage", "CPU Throttling", "RAM RSS", "Disk Read", "Disk Write", "Network Sent", "Network Received"
+  ];
+  
+  const metricsService = [
+    "Mean Response Time", "Success Rate", "Throughput", "Response Rate"
+  ];
+
+  const scenarios = [
+    { id: "A", title: "Saturation Workers", desc: "Stress CPU / Calcul intensif sur microservices", icon: <Server size={28}/>, color: "text-blue-400", border: "border-blue-500/30" },
+    { id: "B", title: "Érosion Database", desc: "Sabotage Postgres & Churn massif de données", icon: <Database size={28}/>, color: "text-purple-400", border: "border-purple-500/30" },
+    { id: "C", title: "Engorgement Celery", desc: "Saturation critique des files de tâches", icon: <Layers size={28}/>, color: "text-orange-400", border: "border-orange-500/30" },
+    { id: "D", title: "Slow-Burn (RAM)", desc: "Fuite mémoire progressive (Injection continue)", icon: <Clock size={28}/>, color: "text-red-400", border: "border-red-500/30" }
+  ];
+
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      style={{ width: '1280px', height: '720px' }}
-      className="relative flex flex-col px-20 py-10 overflow-hidden font-helvetica shadow-2xl mx-auto bg-pres-grey"
-    >
+    <div className="w-[1280px] h-[720px] bg-pres-grey text-white flex flex-col px-12 py-8 font-sans overflow-hidden relative">
       
+      {/* HEADER */}
+      <div className="mb-5 flex justify-between items-end border-b border-white/10 pb-3">
+        <div>
+          <div className="text-[#FFE600] text-sm font-bold tracking-[4px] uppercase mb-2">Analyse des dégradations</div>
+          <h1 className="text-5xl font-bold">Scénarios <span className="text-[#FFE600]">&</span> Gestion des risques</h1>
+        </div>
+        <Shield size={40} className="text-[#FFE600] opacity-50" />
+      </div>
+
+      <div className="flex-1 grid grid-cols-12 gap-6 items-start relative pb-20">
+        
+        {/* COLONNE GAUCHE : METRIQUES */}
+        <div className="col-span-4 flex flex-col gap-2 bg-white/5 border border-white/10 p-4 rounded-xl backdrop-blur-md shadow-xl">
+          <div className="flex items-center gap-2 mb-2 border-b border-white/10 pb-2">
+            <Activity size={20} className="text-[#FFE600]" />
+            <span className="text-sm text-[#FFE600] uppercase font-bold tracking-widest">Dataset : 11 Métriques</span>
+          </div>
+          
+          <div className="grid grid-cols-1 gap-0.5">
+            <div className="flex items-center gap-2 mb-1">
+              <Cpu size={16} className="text-blue-400" />
+              <p className="text-sm text-blue-400 uppercase font-bold">Infrastructure</p>
+            </div>
+            {metricsInfra.map((m, i) => (
+              <div key={i} className="text-sm text-gray-300 bg-blue-500/5 px-3 py-1 rounded border border-blue-500/10 flex justify-between">
+                <span className="font-medium">{m}</span>
+                <span className="text-xs text-blue-400/60 font-mono italic uppercase">Infra</span>
+              </div>
+            ))}
+            
+            <div className="flex items-center gap-2 mt-2 mb-1">
+              <Globe size={16} className="text-[#FFE600]" />
+              <p className="text-sm text-[#FFE600] uppercase font-bold">Service</p>
+            </div>
+            {metricsService.map((m, i) => (
+              <div key={i} className="text-sm text-white bg-[#FFE600]/5 px-3 py-1 rounded border border-[#FFE600]/20 flex justify-between">
+                <span className="font-bold">{m}</span>
+                <span className="text-[#FFE600] text-xs font-mono font-bold uppercase">KPI</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* COLONNE DROITE : SCÉNARIOS */}
+        <div className="col-span-8 grid grid-cols-2 gap-4">
+          {scenarios.map((s) => (
+            <div key={s.id} className={`flex flex-col p-6 rounded-xl border ${s.border} bg-white/5 backdrop-blur-md transition-all hover:bg-white/10`}>
+              <div className="flex items-center gap-3 mb-3">
+                <div className={`p-2.5 rounded-full ${s.color.replace('text', 'bg')}/10 ${s.color}`}>
+                  {s.icon}
+                </div>
+                {/* Badge ID Scénario plus discret */}
+                <div className={`px-3 py-1 rounded-lg font-black text-lg uppercase ${s.color} bg-white/5 border border-white/10`}>
+                  {s.id}
+                </div>
+              </div>
+              <h4 className="text-xl font-bold text-white mb-2 tracking-tight">{s.title}</h4>
+              {/* DESCRIPTION EN BLANC */}
+              <p className="text-sm text-white leading-relaxed italic font-medium opacity-80">
+                {s.desc}
+              </p>
+            </div>
+          ))}
+          
+          {/* BOX OBJECTIF */}
+          <div className="col-span-2 mt-2 bg-[#FFE600]/5 border border-[#FFE600]/30 p-5 rounded-xl flex items-center justify-between">
+            <div className="flex items-center gap-4">
+               <div className="p-3 bg-[#FFE600] rounded-full text-black shadow-[0_0_15px_rgba(255,230,0,0.2)]">
+                 <Shield size={24}/>
+               </div>
+               <div>
+                 <p className="text-sm text-[#FFE600] font-bold uppercase tracking-widest leading-none mb-1.5">Objectif Expérimental</p>
+                 <p className="text-base text-gray-200 font-medium">Validation du modèle sur dérives comportementales multi-vectorielles.</p>
+               </div>
+            </div>
+            <div className="text-right border-l border-white/10 pl-6">
+               <p className="text-sm text-gray-500 uppercase font-bold mb-1 tracking-tighter">Fiabilité SI</p>
+               <p className="text-3xl font-black text-[#FFE600]">100%</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* FOOTER */}
       <div className="absolute bottom-0 left-0 w-full px-20 pb-10">
@@ -21,7 +112,7 @@ const Slide6 = () => {
           </div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
