@@ -20,7 +20,6 @@ const ArchBox = ({ title, icon, details, color, bgColor, borderColor, width = "w
     <h3 className={`font-bold text-[11px] uppercase mb-1.5 ${color} tracking-wider`}>{title}</h3>
     <ul className="space-y-1 w-full">
       {details.map((d, i) => (
-        // MODIFICATION ICI : bg-white/5 au lieu de bg-black/30 pour matcher la Slide 3
         <li key={i} className="text-[10px] text-gray-300 bg-white/5 px-1.5 py-0.5 rounded text-center truncate w-full border border-white/5">
           {d}
         </li>
@@ -43,7 +42,6 @@ const Line = ({ width = "w-8", color = "bg-white/10" }) => (
 
 const Slide5 = () => {
   return (
-    // MODIFICATION ICI : bg-pres-grey au lieu de bg-[#1a1a1a]
     <div className="w-[1280px] h-[720px] bg-pres-grey text-white flex flex-col px-12 py-10 font-sans overflow-hidden relative">
       
       {/* HEADER */}
@@ -83,8 +81,12 @@ const Slide5 = () => {
 
         {/* --- COLONNE 2 : ACQUISITION --- */}
         <div className="col-span-2 flex flex-col items-center justify-center relative">
-             <Line width="w-full" color="bg-gray-600" />
-             <div className="absolute bg-pres-grey p-2"> {/* Match background color here too */}
+             {/* TRAIT QUI RELIE VERS GOOGLE BOUTIQUE */}
+             <div className="absolute left-0 top-1/2 -translate-x-full -translate-y-1/2">
+                <Line width="w-12" color="bg-gray-400" />
+             </div>
+             
+             <div className="absolute bg-pres-grey p-2">
                 <ArchBox 
                     title="Observabilité" 
                     icon={<Eye size={18} className="text-purple-400"/>}
@@ -96,8 +98,6 @@ const Slide5 = () => {
 
         {/* --- COLONNE 3 : LE SPLIT (Traitement) --- */}
         <div className="col-span-5 relative h-full">
-            {/* Ligne de séparation visuelle */}
-            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-8 h-[2px] bg-gray-700"></div>
             
             {/* BRANCHE HAUTE (MÉTRIQUES) */}
             <div className="absolute top-[15%] left-8 right-0 flex items-center">
@@ -128,18 +128,15 @@ const Slide5 = () => {
             {/* LE COEUR (FUSION) */}
             <div className="absolute top-1/2 -translate-y-1/2 right-0 z-20">
                 <ArchBox 
-                    title="FUSION HYBRIDE (GRU + NLP)" 
+                    title="BENCHMARK MODELES" 
                     icon={<BrainCircuit size={24} className="text-[#FFE600]"/>}
-                    details={["Fusion Multimodale", "Mémoire à Long Terme", "Robustesse (Dropout)"]}
+                    details={["Long-Short Term Memory", "Gated Recurrent Unit", "GRU + NLP"]}
                     color="text-[#FFE600]" bgColor="bg-[#FFE600]/10" borderColor="border-[#FFE600]" width="w-40"
                 />
             </div>
-
-            {/* Lignes de convergence vers le coeur */}
-            <svg className="absolute inset-0 pointer-events-none w-full h-full z-0">
-                <path d="M 280 120 C 350 120, 350 220, 420 280" fill="none" stroke="#3b82f6" strokeWidth="1" strokeDasharray="4 4" opacity="0.5" />
-                <path d="M 280 440 C 350 440, 350 340, 420 280" fill="none" stroke="#eab308" strokeWidth="1" strokeDasharray="4 4" opacity="0.5" />
-            </svg>
+            
+            {/* J'ai supprimé le bloc <svg> des pointillés ici */}
+            
         </div>
 
         {/* --- COLONNE 4 : OUTPUT (Droite) --- */}
