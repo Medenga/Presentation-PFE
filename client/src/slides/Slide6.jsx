@@ -3,11 +3,11 @@ import { Shield, Activity, Server, Database, Layers, Clock, Globe, Cpu } from 'l
 
 const Slide6 = () => {
   const metricsInfra = [
-    "CPU Usage", "CPU Throttling", "RAM RSS", "Disk Read", "Disk Write", "Network Sent", "Network Received"
+    "Usage CPU", "Limitation CPU", "RAM RSS", "Lecture Disque", "Écriture Disque", "Réseau Envoyé", "Réseau Reçu"
   ];
   
   const metricsService = [
-    "Mean Response Time", "Success Rate", "Throughput", "Response Rate"
+    "Temps de Réponse Moyen", "Taux de Succès", "Débit", "Taux de Réponse"
   ];
 
   const scenarios = [
@@ -35,7 +35,7 @@ const Slide6 = () => {
         <div className="col-span-4 flex flex-col gap-2 bg-white/5 border border-white/10 p-4 rounded-xl backdrop-blur-md shadow-xl">
           <div className="flex items-center gap-2 mb-2 border-b border-white/10 pb-2">
             <Activity size={20} className="text-[#FFE600]" />
-            <span className="text-sm text-[#FFE600] uppercase font-bold tracking-widest">Dataset : 11 Métriques</span>
+            <span className="text-sm text-[#FFE600] uppercase font-bold tracking-widest">Dataset : Métriques étudiées</span>
           </div>
           
           <div className="grid grid-cols-1 gap-0.5">
@@ -44,9 +44,8 @@ const Slide6 = () => {
               <p className="text-sm text-blue-400 uppercase font-bold">Infrastructure</p>
             </div>
             {metricsInfra.map((m, i) => (
-              <div key={i} className="text-sm text-gray-300 bg-blue-500/5 px-3 py-1 rounded border border-blue-500/10 flex justify-between">
+              <div key={i} className="text-sm text-gray-300 bg-blue-500/5 px-3 py-1 rounded border border-blue-500/10">
                 <span className="font-medium">{m}</span>
-                <span className="text-xs text-blue-400/60 font-mono italic uppercase">Infra</span>
               </div>
             ))}
             
@@ -55,9 +54,8 @@ const Slide6 = () => {
               <p className="text-sm text-[#FFE600] uppercase font-bold">Service</p>
             </div>
             {metricsService.map((m, i) => (
-              <div key={i} className="text-sm text-white bg-[#FFE600]/5 px-3 py-1 rounded border border-[#FFE600]/20 flex justify-between">
+              <div key={i} className="text-sm text-white bg-[#FFE600]/5 px-3 py-1 rounded border border-[#FFE600]/20">
                 <span className="font-bold">{m}</span>
-                <span className="text-[#FFE600] text-xs font-mono font-bold uppercase">KPI</span>
               </div>
             ))}
           </div>
@@ -95,10 +93,7 @@ const Slide6 = () => {
                  <p className="text-base text-gray-200 font-medium">Validation du modèle sur dérives comportementales multi-vectorielles.</p>
                </div>
             </div>
-            <div className="text-right border-l border-white/10 pl-6">
-               <p className="text-sm text-gray-500 uppercase font-bold mb-1 tracking-tighter">Fiabilité SI</p>
-               <p className="text-3xl font-black text-[#FFE600]">100%</p>
-            </div>
+            
           </div>
         </div>
       </div>
