@@ -12,7 +12,7 @@ import {
   RotateCw
 } from 'lucide-react';
 
-const Slide11 = () => {
+const Slide12 = () => {
   return (
     <motion.div 
       initial={{ opacity: 0 }}
@@ -168,4 +168,4 @@ const LimitEntry = ({ label, desc }) => (
   </div>
 );
 
-export default Slide11;
+export default Slide12;

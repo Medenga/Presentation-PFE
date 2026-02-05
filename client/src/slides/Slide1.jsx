@@ -69,7 +69,7 @@ const Slide1 = () => {
               />
             </div>
             <p className="text-white text-base leading-relaxed max-w-xs">
-              En partenariat avec notre école l&apos;ECE et l&apos;entreprise EY Consulting.
+              En partenariat avec notre école l&apos;ECE et l&apos;entreprise  EY & ASSOCIES.
             </p>
           </div>
 
