@@ -17,7 +17,7 @@ const Slide10 = () => {
 
       <div className="flex-grow flex flex-col justify-center items-center text-center">
         <div className="border-l-4 border-[#FFE600] pl-6 text-left mb-12">
-          <div className="text-[#FFE600] text-[13px] font-bold tracking-[4px] uppercase mb-1">Simulation d'incident</div>
+          <div className="font-urbanist text-[#FFE600] text-[13px] font-bold tracking-[4px] uppercase mb-1">Simulation d'incident</div>
           <h1 className="text-[50px] font-bold tracking-tighter">
             Démonstration de <span className="text-[#FFE600]">lead time</span>
           </h1>
@@ -25,7 +25,7 @@ const Slide10 = () => {
 
         <button
             onClick={() => window.location.href = "http://localhost:5173/"}
-            className="inline-flex items-center h-[34px] px-4 rounded-md
+            className="font-urbanist inline-flex items-center h-[34px] px-4 rounded-md
                        bg-[#FFE600] text-black text-[12px] font-black uppercase
                        tracking-[0.28em] shadow-[0_0_20px_rgba(255,230,0,0.15)]
                        hover:scale-[1.03] transition-transform mb-2"
@@ -36,7 +36,7 @@ const Slide10 = () => {
 
       {/* FOOTER */}
       <div className="absolute bottom-0 left-0 w-full px-20 pb-10">
-        <div className="pt-4 border-t border-white/30 flex justify-between items-center text-[11px] font-extrabold uppercase tracking-widest text-white">
+        <div className="font-urbanist pt-4 border-t border-white/30 flex justify-between items-center text-[11px] font-extrabold uppercase tracking-widest text-white">
           <div>Numéro d&apos;équipe: #PFE25-R-474</div>
           <div className="text-sm font-black">
             10 <span className="text-ey-yellow">/</span> 13

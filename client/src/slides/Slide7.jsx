@@ -23,13 +23,13 @@ const Card = ({ title, subtitle, icon, color, borderColor, children, isFocus = f
         {React.cloneElement(icon, { size: 28 })}
       </div>
       <div>
-        <h3 className={`font-black text-[16px] uppercase leading-none ${color}`}>{title}</h3>
-        <p className="text-[15px] text-white font-bold mt-2">{subtitle}</p>
+        <h3 className={`font-urbanist font-black text-[16px] uppercase leading-none ${color}`}>{title}</h3>
+        <p className="font-sans text-[15px] text-white font-bold mt-2">{subtitle}</p>
       </div>
     </div>
 
     {/* Content */}
-    <div className="flex-1 flex flex-col gap-4">
+    <div className="flex-1 flex flex-col gap-4 font-sans">
       {children}
     </div>
   </div>
@@ -42,7 +42,7 @@ const Slide7 = () => {
       {/* HEADER */}
       <div className="flex justify-between items-end border-b border-white/10 pb-5 mx-2 shrink-0 h-[80px] mb-8">
         <div>
-          <div className="text-[#FFE600] text-[10px] font-bold tracking-[4px] uppercase mb-1"></div>
+          <div className="font-urbanist text-[#FFE600] text-[10px] font-bold tracking-[4px] uppercase mb-1"></div>
           <h1 className="text-3xl font-bold">Comparatif des <span className="text-[#FFE600]">Modèles IA</span></h1>
         </div>
         <div className="flex gap-2">
@@ -65,14 +65,14 @@ const Slide7 = () => {
           >
             <div className="flex-1 flex flex-col gap-4">
               <div className="bg-white/5 p-4 rounded-lg border border-white/5">
-                <div className="flex items-center gap-2 mb-3">
+                <div className="font-urbanist flex items-center gap-2 mb-3">
                   <Calculator size={16} className="text-orange-400" />
                   <span className="text-[15px] font-bold text-white">Méthodes de Calcul</span>
                 </div>
 
                 <ul className="space-y-4">
                   <li className="flex flex-col gap-1">
-                    <span className="text-[15px] font-bold text-orange-400 flex items-center gap-2">
+                    <span className="font-urbanist text-[15px] font-bold text-orange-400 flex items-center gap-2">
                       1. Sampling Forecaster
                     </span>
                     <p className="text-[14px] text-white leading-snug pl-4 border-l border-orange-400/30">
@@ -80,7 +80,7 @@ const Slide7 = () => {
                     </p>
                   </li>
                   <li className="flex flex-col gap-1">
-                    <span className="text-[15px] font-bold text-orange-400 flex items-center gap-2">
+                    <span className="font-urbanist text-[15px] font-bold text-orange-400 flex items-center gap-2">
                       2. Extrapolation
                     </span>
                     <p className="text-[14px] text-white leading-snug pl-4 border-l border-orange-400/30">
@@ -91,7 +91,7 @@ const Slide7 = () => {
               </div>
 
               <div className="bg-black/20 p-4 rounded-lg border border-white/5 mt-auto">
-                <span className="text-[14px] text-white uppercase font-bold block mb-1">Limite Principale</span>
+                <span className="font-urbanist text-[14px] text-white uppercase font-bold block mb-1">Limite Principale</span>
                 <p className="text-[14px] text-white leading-snug">
                   Ces modèles supposent une répétition stricte. <b>Incapables d'anticiper</b> les anomalies complexes ou non-linéaires.
                 </p>
@@ -116,7 +116,7 @@ const Slide7 = () => {
               <div className="bg-blue-500/10 p-4 rounded-lg border border-blue-500/20 flex-1 flex flex-col justify-center relative overflow-hidden">
 
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-[15px] font-black text-white">LSTM</span>
+                  <span className="font-urbanist text-[15px] font-black text-white">LSTM</span>
                 </div>
                 <p className="text-[14px] text-white leading-snug relative z-10">
                   Architecture complexe (3 portes). Idéale pour capturer des <b>dépendances longues</b> dans l'historique des métriques.
@@ -127,7 +127,7 @@ const Slide7 = () => {
               <div className="bg-indigo-500/10 p-4 rounded-lg border border-indigo-500/20 flex-1 flex flex-col justify-center relative overflow-hidden">
 
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-[15px] font-black text-white">Gated Reccurent Unit (GRU)</span>
+                  <span className="font-urbanist text-[15px] font-black text-white">Gated Reccurent Unit (GRU)</span>
                 </div>
                 <p className="text-[14px] text-white leading-snug relative z-10">
                   Version optimisée (2 portes). Plus légère et rapide à entraîner, parfaite pour l'inférence en <b>temps réel</b> sur nos flux de données.
@@ -167,7 +167,7 @@ const Slide7 = () => {
 
               <div className="bg-black/40 p-4 rounded-lg border border-[#FFE600]/20">
 
-                <div className="flex items-center gap-2 mb-3">
+                <div className="font-urbanist flex items-center gap-2 mb-3">
 
                   <MessageSquareCode size={16} className="text-[#FFE600]" />
 
@@ -179,7 +179,7 @@ const Slide7 = () => {
 
                   <li className="flex gap-3 text-[14px] text-white">
 
-                    <span className="text-[#FFE600] font-bold text-[14px]">1.</span>
+                    <span className="font-urbanist text-[#FFE600] font-bold text-[14px]">1.</span>
 
                     <span><b>Tokenisation :</b> Nettoyage des logs (suppression dates/IPs) pour garder le sens sémantique.</span>
 
@@ -187,7 +187,7 @@ const Slide7 = () => {
 
                   <li className="flex gap-3 text-[14px] text-white">
 
-                    <span className="text-[#FFE600] font-bold text-[14px]">2.</span>
+                    <span className="font-urbanist text-[#FFE600] font-bold text-[14px]">2.</span>
 
                     <span><b>Embedding :</b> Transformation du texte en vecteur numérique dense.</span>
 
@@ -203,7 +203,7 @@ const Slide7 = () => {
 
               <div className="bg-black/40 p-4 rounded-lg border border-white/10 mt-1">
 
-                <div className="flex items-center gap-2 mb-2">
+                <div className="font-urbanist flex items-center gap-2 mb-2">
 
                   <Binary size={16} className="text-blue-400" />
 
@@ -233,7 +233,7 @@ const Slide7 = () => {
 
       </div>
       <div className="absolute bottom-0 left-0 w-full px-20 pb-8">
-        <div className="pt-4 border-t border-white/15 flex justify-between items-center text-[11px] font-extrabold uppercase tracking-widest text-white/60">
+        <div className="font-urbanist pt-4 border-t border-white/15 flex justify-between items-center text-[11px] font-extrabold uppercase tracking-widest text-white/60">
           <div>Numéro d’équipe : <span className="text-white">#PFE25-R-474</span></div>
           <div className="text-sm font-black text-white">
             07 <span className="text-[#FFE600]">/</span> 10
