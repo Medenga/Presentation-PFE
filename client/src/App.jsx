@@ -16,7 +16,7 @@ import Slide10 from './slides/Slide10';
 import Slide11 from './slides/Slide11';
 import Slide12 from './slides/Slide12';
 import Slide13 from './slides/Slide13';
-import Slide14 from './slides/Slide_template';
+import Slide14 from './slides/Slide14';
 import Simulation from './slides/Simulation';
 import NavigationControls from './components/NavigationControls';
 
