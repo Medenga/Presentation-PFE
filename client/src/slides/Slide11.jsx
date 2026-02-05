@@ -25,7 +25,7 @@ const Slide11 = ({ auditMetadata }) => {
     >
       {/* TITRE PRINCIPAL */}
       <div className="mb-8 border-l-4 border-[#FFE600] pl-6">
-        <div className="text-[#FFE600] text-[13px] font-bold tracking-[4px] uppercase mb-1">
+        <div className="font-urbanist text-[#FFE600] text-[13px] font-bold tracking-[4px] uppercase mb-1">
           Innovation & Intelligence Artificielle
         </div>
         <h1 className="text-[40px] font-bold leading-tight uppercase tracking-tight">
@@ -34,7 +34,7 @@ const Slide11 = ({ auditMetadata }) => {
       </div>
 
       {/* COMPARAISON DES APPROCHES */}
-      <div className="grid grid-cols-2 gap-4 mb-8 uppercase font-black text-[11px] tracking-widest text-center">
+      <div className="font-urbanist grid grid-cols-2 gap-4 mb-8 uppercase font-black text-[11px] tracking-widest text-center">
         <div className="bg-white/5 border border-white/10 p-4 rounded-lg text-white/40 italic">
           Méthodes Classiques : Alertes fixes et calculs rigides
         </div>
@@ -45,7 +45,7 @@ const Slide11 = ({ auditMetadata }) => {
 
       {/* ARCHITECTURE DE L'ANALYSE */}
       <div className="bg-white/[0.03] border border-white/10 rounded-xl p-6 mb-8">
-        <div className="flex items-center gap-2 text-[#FFE600] text-[12px] font-black uppercase tracking-widest mb-5">
+        <div className="font-urbanist flex items-center gap-2 text-[#FFE600] text-[12px] font-black uppercase tracking-widest mb-5">
           <Cpu size={17} /> Les 3 piliers de notre intelligence artificielle
         </div>
         <div className="grid grid-cols-3 gap-6">
@@ -73,10 +73,10 @@ const Slide11 = ({ auditMetadata }) => {
         {/* BLOC EXPLICABILITÉ */}
         <div className="bg-white/[0.04] border border-white/10 rounded-xl p-6 flex flex-col justify-between min-h-[180px]">
           <div>
-            <div className="flex items-center gap-2 text-[#FFE600] text-[11px] font-black uppercase tracking-widest mb-4">
+            <div className="font-urbanist flex items-center gap-2 text-[#FFE600] text-[11px] font-black uppercase tracking-widest mb-4">
               <Fingerprint size={18} /> Une IA transparente (Pas de "Boîte Noire")
             </div>
-            <p className="text-[16px] text-white/80 leading-relaxed italic">
+            <p className="text-[16px] text-white/80 leading-relaxed italic font-sans">
               "Chaque alerte est expliquée de manière simple : nous montrons précisément quel facteur ou quel événement a déclenché l'anomalie pour garantir une confiance totale."
             </p>
           </div>
@@ -85,14 +85,14 @@ const Slide11 = ({ auditMetadata }) => {
         {/* BLOC ACCOMPAGNEMENT MÉTIER */}
         <div className="bg-[#FFE600]/5 border border-[#FFE600]/20 rounded-xl p-6 flex flex-col justify-between min-h-[180px]">
           <div>
-            <div className="flex items-center gap-2 text-[#FFE600] text-[11px] font-black uppercase tracking-widest mb-4 font-mono">
+            <div className="font-urbanist flex items-center gap-2 text-[#FFE600] text-[11px] font-black uppercase tracking-widest mb-4 font-mono">
               <ShieldCheck size={18} /> Gain de temps opérationnel
             </div>
-            <p className="text-[16px] text-white/80 leading-relaxed font-medium">
+            <p className="text-[16px] text-white/80 leading-relaxed font-medium font-sans">
               Nous ne nous contentons pas de détecter. Nous générons un **Rapport Intelligent** qui propose des **solutions immédiates** pour réparer les pannes plus rapidement.
             </p>
           </div>
-          <div className="flex items-center gap-2 text-[10px] font-black text-[#FFE600] uppercase pt-4 border-t border-[#FFE600]/10 mt-auto">
+          <div className="font-urbanist flex items-center gap-2 text-[10px] font-black text-[#FFE600] uppercase pt-4 border-t border-[#FFE600]/10 mt-auto">
             <Trophy size={14} /> Accélération drastique des interventions
           </div>
         </div>
@@ -100,7 +100,7 @@ const Slide11 = ({ auditMetadata }) => {
 
       {/* FOOTER */}
       <div className="absolute bottom-0 left-0 w-full px-20 pb-10">
-        <div className="pt-4 border-t border-white/30 flex justify-between items-center text-[11px] font-extrabold uppercase tracking-widest text-white">
+        <div className="font-urbanist pt-4 border-t border-white/30 flex justify-between items-center text-[11px] font-extrabold uppercase tracking-widest text-white">
           <div>Numéro d&apos;équipe: #PFE25-R-474</div>
           <div className="text-sm font-black text-white">
             11 <span className="text-[#FFE600]">/</span> 13
@@ -119,10 +119,10 @@ const TechPhase = ({ icon, title, desc, active }) => (
       {icon}
     </div>
     <div>
-      <div className={`text-[14px] font-bold uppercase tracking-tight ${active ? 'text-black' : 'text-white'}`}>
+      <div className={`font-urbanist text-[14px] font-bold uppercase tracking-tight ${active ? 'text-black' : 'text-white'}`}>
         {title}
       </div>
-      <div className={`text-[10px] font-black uppercase opacity-70 ${active ? 'text-black' : 'text-black/60'}`}>
+      <div className={`font-sans text-[10px] font-black uppercase opacity-70 ${active ? 'text-black' : 'text-black/60'}`}>
         {desc}
       </div>
     </div>
