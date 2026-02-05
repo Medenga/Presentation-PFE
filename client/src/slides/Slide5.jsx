@@ -14,8 +14,9 @@ import {
 /**
  * ArchBox
  * Composant UI réutilisable représentant un nœud de l'architecture.
- * Utilise un style "Glassmorphism" (backdrop-blur) pour la modernité.
- * @param {string} width - Largeur adaptable selon le contenu (défaut w-44).
+ * MODIFICATIONS TAILLE : 
+ * - Police passée à text-[13px] (au lieu de 12px) pour maximiser la lisibilité.
+ * - Le padding horizontal des items (li) est passé à px-2.
  */
 const ArchBox = ({ title, icon, details, color, bgColor, borderColor, width = "w-44" }) => (
   <div className={`flex flex-col items-center p-3 rounded-xl border ${borderColor} ${bgColor} backdrop-blur-md ${width} shadow-lg z-10`}>
@@ -23,11 +24,12 @@ const ArchBox = ({ title, icon, details, color, bgColor, borderColor, width = "w
     <div className={`p-1.5 rounded-full mb-2 ${color.replace('text-', 'bg-')}/10`}>
       {icon}
     </div>
-    <h3 className={`font-urbanist font-bold text-[11px] uppercase mb-1.5 ${color} tracking-wider`}>{title}</h3>
+    <h3 className={`font-urbanist font-bold text-[12px] uppercase mb-1.5 ${color} tracking-wider`}>{title}</h3>
     {/* Liste des spécificités techniques du nœud */}
     <ul className="space-y-1 w-full">
       {details.map((d, i) => (
-        <li key={i} className="text-[11px] text-white bg-white/5 px-1.5 py-0.5 rounded text-center truncate w-full border border-white/5">
+        // Police augmentée à 13px
+        <li key={i} className="text-[14px] text-white bg-white/5 px-2 py-0.5 rounded text-center truncate w-full border border-white/5">
           {d}
         </li>
       ))}
@@ -37,12 +39,10 @@ const ArchBox = ({ title, icon, details, color, bgColor, borderColor, width = "w
 
 /**
  * Line
- * Connecteur visuel simulant le flux de données.
- * Intègre une animation Framer Motion (particule) pour dynamiser le schéma.
+ * Connecteur visuel.
  */
 const Line = ({ width = "w-8", color = "bg-white/10" }) => (
   <div className={`h-[2px] ${width} ${color} flex items-center justify-center relative`}>
-      {/* Animation continue : déplacement de gauche à droite avec fondu */}
       <motion.div 
         animate={{ x: [-10, 40], opacity: [0, 1, 0] }}
         transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
@@ -53,7 +53,6 @@ const Line = ({ width = "w-8", color = "bg-white/10" }) => (
 
 const Slide5 = () => {
   return (
-    // Conteneur principal figé en 1280x720 pour garantir le rendu sur vidéoprojecteur
     <div className="w-[1280px] h-[720px] bg-pres-grey text-white flex flex-col px-12 py-10 font-sans overflow-hidden relative">
       
       {/* --- HEADER --- */}
@@ -68,18 +67,18 @@ const Slide5 = () => {
       </div>
 
       {/* --- MAIN LAYOUT (GRID SYSTEM) --- */}
-      {/* Division de l'espace en 12 colonnes pour un alignement précis des étapes */}
       <div className="flex-1 grid grid-cols-12 gap-2 items-center relative pb-10">
         
         {/* ZONE 1 : ENVIRONNEMENT (INPUT) */}
-        {/* Simulation de l'infrastructure e-commerce et de l'injection de chaos */}
         <div className="col-span-2 flex flex-col gap-4 items-center border-r border-white/5 pr-4 h-full justify-center">
             <span className="font-urbanist text-white text-xs uppercase font-bold mb-4 tracking-widest">Environnement</span>
+            {/* Largeur augmentée à w-48 */}
             <ArchBox 
               title="Google Boutique" 
               icon={<CloudLightning size={16} className="text-red-400"/>}
               details={["Site E-commerce", "Microservices"]}
               color="text-red-400" bgColor="bg-red-500/5" borderColor="border-red-500/30"
+              width="w-48"
             />
             <div className="flex gap-2">
                 <div className="p-2 bg-red-900/10 border border-red-500/20 rounded flex flex-col items-center w-20">
@@ -94,63 +93,69 @@ const Slide5 = () => {
         </div>
 
         {/* ZONE 2 : ACQUISITION */}
-        {/* Collecte centralisée via l'agent Datadog */}
         <div className="col-span-2 flex flex-col items-center justify-center relative">
              <div className="absolute left-0 top-1/2 -translate-x-full -translate-y-1/2">
                 <Line width="w-12" color="bg-gray-400" />
              </div>
              
              <div className="absolute bg-pres-grey p-2">
+                {/* Largeur augmentée à w-40 */}
                 <ArchBox 
                     title="Observabilité" 
                     icon={<Eye size={18} className="text-purple-400"/>}
-                    details={["Agent Datadog", "Collecte des données"]}
-                    color="text-purple-400" bgColor="bg-purple-500/5" borderColor="border-purple-500/30" width="w-36"
+                    details={["Agent Datadog", "Collecte données"]}
+                    color="text-purple-400" bgColor="bg-purple-500/5" borderColor="border-purple-500/30" 
+                    width="w-40"
                 />
              </div>
         </div>
 
-        {/* ZONE 3 : TRAITEMENT & MODÉLISATION (LE CŒUR) */}
-        {/* Architecture complexe avec séparation des flux (Metrics vs Logs) puis fusion */}
+        {/* ZONE 3 : TRAITEMENT & MODÉLISATION */}
         <div className="col-span-5 relative h-full">
             
-            {/* Branche Haute : Pipeline Métriques (Séries temporelles) */}
+            {/* Branche Haute : Pipeline Métriques */}
             <div className="absolute top-[15%] left-8 right-0 flex items-center">
                 <div className="h-[2px] w-8 bg-blue-500/30 -ml-8 rotate-[-25deg] origin-right"></div>
                 <Line width="w-12" color="bg-blue-500/50" />
+                {/* Largeur augmentée à w-52 */}
                 <ArchBox 
                     title="Preprocessing Métriques" 
                     icon={<Activity size={18} className="text-blue-400"/>}
-                    details={["Mise à l'échelle (Outliers)", "Fenêtre temporelle 10 min", "Analyse de Tendances"]}
-                    color="text-blue-400" bgColor="bg-blue-500/5" borderColor="border-blue-500/30" width="w-48"
+                    details={["Mise à l'échelle (Outliers)", "Fenêtre de temps 10 min", "Analyse de Tendances"]}
+                    color="text-blue-400" bgColor="bg-blue-500/5" borderColor="border-blue-500/30" 
+                    width="w-52"
                 />
                 <Line width="w-16" color="bg-blue-500/50" />
             </div>
 
-            {/* Branche Basse : Pipeline Logs (NLP / TF-IDF) */}
+            {/* Branche Basse : Pipeline Logs */}
             <div className="absolute bottom-[15%] left-8 right-0 flex items-center">
                 <div className="h-[2px] w-8 bg-yellow-500/30 -ml-8 rotate-[25deg] origin-right"></div>
                 <Line width="w-12" color="bg-yellow-500/50" />
+                {/* Largeur augmentée à w-52 */}
                 <ArchBox 
                     title="Preprocessing Logs" 
                     icon={<FileText size={18} className="text-yellow-400"/>}
                     details={["Nettoyage du Texte", "TF-IDF : Encodage Numérique", "Sélection des Features"]}
-                    color="text-yellow-400" bgColor="bg-yellow-500/5" borderColor="border-yellow-500/30" width="w-48"
+                    color="text-yellow-400" bgColor="bg-yellow-500/5" borderColor="border-yellow-500/30" 
+                    width="w-52"
                 />
                 <Line width="w-16" color="bg-yellow-500/50" />
             </div>
 
-            {/* Point de convergence : Benchmark des modèles */}
+            {/* Point de convergence : Benchmark */}
             <div className="absolute top-1/2 -translate-y-1/2 right-0 z-20">
+                {/* Largeur augmentée à w-44 */}
                 <ArchBox 
                     title="BENCHMARK MODELES" 
                     icon={<BrainCircuit size={24} className="text-[#FFE600]"/>}
                     details={["LSTM", "GRU", "Hybride (GRU + NLP)"]}
-                    color="text-[#FFE600]" bgColor="bg-[#FFE600]/10" borderColor="border-[#FFE600]" width="w-40"
+                    color="text-[#FFE600]" bgColor="bg-[#FFE600]/10" borderColor="border-[#FFE600]" 
+                    width="w-44"
                 />
             </div>
 
-            {/* Lexique technique en bas de zone pour expliciter les acronymes */}
+            {/* Lexique technique */}
             <div className="absolute bottom-0 left-0 right-0 flex justify-center pb-2">
                 <div className="flex gap-4 px-5 py-2.5 bg-black/40 rounded-full border border-white/10 backdrop-blur-sm shadow-xl w-max whitespace-nowrap">
                     <div className="text-[11px] text-white flex items-center gap-1">
@@ -170,8 +175,7 @@ const Slide5 = () => {
             
         </div>
 
-        {/* ZONE 4 : RÉSULTATS (OUTPUT) */}
-        {/* Métriques clés de performance (F1-Score et Lead Time) */}
+        {/* ZONE 4 : RÉSULTATS */}
         <div className="col-span-3 flex items-center justify-end pl-4 relative">
              <Line width="w-16" color="bg-green-500/50" />
              <div className="bg-green-500/5 border border-green-500/30 p-4 rounded-xl flex flex-col gap-3 w-52">
@@ -180,7 +184,7 @@ const Slide5 = () => {
                     <span className="text-green-400 font-bold text-xs uppercase">Performance</span>
                 </div>
                 
-                {/* KPI 1 : Fiabilité */}
+                {/* KPI 1 */}
                 <div className="flex justify-between items-center font-urbanist">
                     <span className="text-[10px] text-white uppercase font-bold">Qualité de l'Alerte (F1-score)</span>
                     <span className="text-xl font-bold text-white">66%</span>
@@ -189,7 +193,7 @@ const Slide5 = () => {
                     <div className="bg-green-400 h-full w-[66%]"></div>
                 </div>
 
-                {/* KPI 2 : Anticipation */}
+                {/* KPI 2 */}
                 <div className="flex justify-between items-center mt-1 pt-2 border-t border-white/5 font-urbanist">
                     <div className="flex flex-col leading-tight">
                         <span className="text-[10px] text-white uppercase font-bold">Gain de Temps</span>
