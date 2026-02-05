@@ -23,7 +23,7 @@ const Slide6 = () => {
       {/* HEADER */}
       <div className="mb-5 flex justify-between items-end border-b border-white/10 pb-3">
         <div>
-          <div className="text-[#FFE600] text-sm font-bold tracking-[4px] uppercase mb-2">Analyse des dégradations</div>
+          <div className="font-urbanist text-[#FFE600] text-sm font-bold tracking-[4px] uppercase mb-2">Analyse des dégradations</div>
           <h1 className="text-5xl font-bold">Scénarios <span className="text-[#FFE600]">&</span> Gestion des risques</h1>
         </div>
         <Shield size={40} className="text-[#FFE600] opacity-50" />
@@ -33,28 +33,28 @@ const Slide6 = () => {
         
         {/* COLONNE GAUCHE : METRIQUES */}
         <div className="col-span-4 flex flex-col gap-2 bg-white/5 border border-white/10 p-4 rounded-xl backdrop-blur-md shadow-xl">
-          <div className="flex items-center gap-2 mb-2 border-b border-white/10 pb-2">
+          <div className="font-urbanist flex items-center gap-2 mb-2 border-b border-white/10 pb-2">
             <Activity size={20} className="text-[#FFE600]" />
             <span className="text-sm text-[#FFE600] uppercase font-bold tracking-widest">Dataset : Métriques étudiées</span>
           </div>
           
           <div className="grid grid-cols-1 gap-0.5">
-            <div className="flex items-center gap-2 mb-1">
+            <div className="font-urbanist flex items-center gap-2 mb-1">
               <Cpu size={16} className="text-blue-400" />
               <p className="text-sm text-blue-400 uppercase font-bold">Infrastructure</p>
             </div>
             {metricsInfra.map((m, i) => (
-              <div key={i} className="text-sm text-gray-300 bg-blue-500/5 px-3 py-1 rounded border border-blue-500/10">
+              <div key={i} className="text-sm text-gray-300 bg-blue-500/5 px-3 py-1 rounded border border-blue-500/10 font-sans">
                 <span className="font-medium">{m}</span>
               </div>
             ))}
             
-            <div className="flex items-center gap-2 mt-2 mb-1">
+            <div className="font-urbanist flex items-center gap-2 mt-2 mb-1">
               <Globe size={16} className="text-[#FFE600]" />
               <p className="text-sm text-[#FFE600] uppercase font-bold">Service</p>
             </div>
             {metricsService.map((m, i) => (
-              <div key={i} className="text-sm text-white bg-[#FFE600]/5 px-3 py-1 rounded border border-[#FFE600]/20">
+              <div key={i} className="text-sm text-white bg-[#FFE600]/5 px-3 py-1 rounded border border-[#FFE600]/20 font-sans">
                 <span className="font-bold">{m}</span>
               </div>
             ))}
@@ -70,13 +70,13 @@ const Slide6 = () => {
                   {s.icon}
                 </div>
                 {/* Badge ID Scénario plus discret */}
-                <div className={`px-3 py-1 rounded-lg font-black text-lg uppercase ${s.color} bg-white/5 border border-white/10`}>
+                <div className={`font-urbanist px-3 py-1 rounded-lg font-black text-lg uppercase ${s.color} bg-white/5 border border-white/10`}>
                   {s.id}
                 </div>
               </div>
-              <h4 className="text-xl font-bold text-white mb-2 tracking-tight">{s.title}</h4>
+              <h4 className="text-xl font-bold text-white mb-2 tracking-tight font-sans">{s.title}</h4>
               {/* DESCRIPTION EN BLANC */}
-              <p className="text-sm text-white leading-relaxed italic font-medium opacity-80">
+              <p className="text-sm text-white leading-relaxed italic font-medium opacity-80 font-sans">
                 {s.desc}
               </p>
             </div>
@@ -89,8 +89,8 @@ const Slide6 = () => {
                  <Shield size={24}/>
                </div>
                <div>
-                 <p className="text-sm text-[#FFE600] font-bold uppercase tracking-widest leading-none mb-1.5">Objectif Expérimental</p>
-                 <p className="text-base text-gray-200 font-medium">Validation du modèle sur dérives comportementales multi-vectorielles.</p>
+                 <p className="font-urbanist text-sm text-[#FFE600] font-bold uppercase tracking-widest leading-none mb-1.5">Objectif Expérimental</p>
+                 <p className="text-base text-gray-200 font-medium font-sans">Validation du modèle sur dérives comportementales multi-vectorielles.</p>
                </div>
             </div>
             
@@ -100,7 +100,7 @@ const Slide6 = () => {
 
       {/* FOOTER */}
       <div className="absolute bottom-0 left-0 w-full px-20 pb-10">
-        <div className="pt-4 border-t border-white/30 flex justify-between items-center text-[11px] font-extrabold uppercase tracking-widest text-white">
+        <div className="font-urbanist pt-4 border-t border-white/30 flex justify-between items-center text-[11px] font-extrabold uppercase tracking-widest text-white">
           <div>Numéro d&apos;équipe: #PFE25-R-474</div>
           <div className="text-sm font-black">
             06 <span className="text-ey-yellow">/</span> 13

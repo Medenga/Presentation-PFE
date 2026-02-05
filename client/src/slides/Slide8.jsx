@@ -24,7 +24,7 @@ const BenchmarkFullTable = () => {
   const format = (v) => (typeof v === "number" ? String(v) : v);
 
   return (
-    <div className="w-full h-full p-6 flex items-center justify-center">
+    <div className="w-full h-full p-6 flex items-center justify-center font-sans">
       <div className="w-full h-full bg-white rounded-2xl overflow-hidden border border-black/10 shadow-[0_18px_60px_rgba(0,0,0,0.35)]">
         <div className="h-[54px] bg-gradient-to-r from-[#0B73C9] to-[#2FA3E1] flex items-center px-6">
           <div className="text-white font-extrabold uppercase tracking-[0.26em] text-[12px]">
@@ -375,7 +375,7 @@ const Slide8 = () => {
 
       {/* FOOTER */}
       <div className="absolute bottom-0 left-0 w-full px-20 pb-10">
-        <div className="pt-4 border-t border-white/30 flex justify-between items-center text-[11px] font-extrabold uppercase tracking-widest text-white">
+        <div className="font-urbanist pt-4 border-t border-white/30 flex justify-between items-center text-[11px] font-extrabold uppercase tracking-widest text-white">
           <div>Numéro d&apos;équipe: #PFE25-R-474</div>
           <div className="text-sm font-black">
             08 <span className="text-ey-yellow">/</span> 13
