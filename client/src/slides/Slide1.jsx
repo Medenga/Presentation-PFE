@@ -8,11 +8,11 @@ const Slide1 = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       style={{ width: '1280px', height: '720px' }}
-      className="relative flex flex-col px-20 py-10 overflow-hidden font-helvetica shadow-2xl mx-auto bg-pres-grey"
+      className="relative flex flex-col px-20 py-10 overflow-hidden font-sans shadow-2xl mx-auto bg-pres-grey"
     >
       {/* MAIN CONTENT */}
       <div className="grow flex flex-col justify-center items-center text-center z-10">
-        <div className="text-ey-yellow text-base font-bold tracking-[0.25em] uppercase mb-3">
+        <div className="font-urbanist text-ey-yellow text-base font-bold tracking-[0.25em] uppercase mb-3">
           Projet de Fin d'Études • 2025-2026
         </div>
 
@@ -78,7 +78,7 @@ const Slide1 = () => {
 
       {/* FOOTER */}
       <div className="absolute bottom-0 left-0 w-full px-20 pb-10">
-        <div className="pt-4 border-t border-white/30 flex justify-between items-center text-[11px] font-extrabold uppercase tracking-widest text-white">
+        <div className="font-urbanist pt-4 border-t border-white/30 flex justify-between items-center text-[11px] font-extrabold uppercase tracking-widest text-white">
           <div>Numéro d&apos;équipe: #PFE25-R-474</div>
           <div className="text-sm font-black">
             01 <span className="text-ey-yellow">/</span> 13

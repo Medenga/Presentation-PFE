@@ -22,7 +22,7 @@ const Slide3 = () => {
           {/* RIGUEUR */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[300px] h-[300px] rounded-full border-2 border-blue-400/40 bg-blue-400/10 flex flex-col items-center justify-start pt-10 text-center">
             <ShieldCheck size={36} className="text-blue-400 mb-3" />
-            <div className="text-[22px] font-bold text-blue-200 uppercase tracking-wider">Rigueur</div>
+            <div className="font-urbanist text-[22px] font-bold text-blue-200 uppercase tracking-wider">Rigueur</div>
             <div className="text-[16px] text-blue-200/80 mt-1 font-semibold max-w-[180px]">
               Audit traditionnel (IFACI)
             </div>
@@ -31,7 +31,7 @@ const Slide3 = () => {
           {/* PUISSANCE */}
           <div className="absolute bottom-4 left-0 w-[300px] h-[300px] rounded-full border-2 border-green-400/40 bg-green-400/10 flex flex-col items-center justify-start pt-12 text-center">
             <Zap size={36} className="text-green-400 mb-3" />
-            <div className="text-[22px] font-bold text-green-200 uppercase tracking-wider">Puissance</div>
+            <div className="font-urbanist text-[22px] font-bold text-green-200 uppercase tracking-wider">Puissance</div>
             <div className="text-[16px] text-green-200/80 mt-1 font-semibold max-w-[180px]">
               Temps réel (AIOps)
             </div>
@@ -40,7 +40,7 @@ const Slide3 = () => {
           {/* CONFIANCE */}
           <div className="absolute bottom-4 right-0 w-[300px] h-[300px] rounded-full border-2 border-purple-400/40 bg-purple-400/10 flex flex-col items-center justify-start pt-12 text-center">
             <Eye size={36} className="text-purple-400 mb-3" />
-            <div className="text-[22px] font-bold text-purple-200 uppercase tracking-wider">Confiance</div>
+            <div className="font-urbanist text-[22px] font-bold text-purple-200 uppercase tracking-wider">Confiance</div>
             <div className="text-[16px] text-purple-200/80 mt-1 font-semibold max-w-[180px]">
               Explicabilité (XAI)
             </div>
@@ -64,7 +64,7 @@ const Slide3 = () => {
         <div className="w-[580px] space-y-6">
 
           <div className="bg-white/5 border border-white/10 p-7 rounded-[24px]">
-            <h4 className="text-blue-400 font-bold text-[22px] mb-2 uppercase tracking-tight">
+            <h4 className="font-urbanist text-blue-400 font-bold text-[22px] mb-2 uppercase tracking-tight">
               Limite normative
             </h4>
             <p className="text-[19px] text-gray-300 leading-relaxed font-medium">
@@ -73,7 +73,7 @@ const Slide3 = () => {
           </div>
 
           <div className="bg-white/5 border border-white/10 p-7 rounded-[24px]">
-            <h4 className="text-green-400 font-bold text-[22px] mb-2 uppercase tracking-tight">
+            <h4 className="font-urbanist text-green-400 font-bold text-[22px] mb-2 uppercase tracking-tight">
               Le piège de l’AIOps
             </h4>
             <p className="text-[19px] text-gray-300 leading-relaxed font-medium">
@@ -82,10 +82,10 @@ const Slide3 = () => {
           </div>
 
           <div className="bg-[#FFE600]/10 border border-[#FFE600]/30 p-7 rounded-[24px]">
-            <h4 className="text-[#FFE600] font-black uppercase tracking-[3px] text-[15px] mb-3">
+            <h4 className="font-urbanist text-[#FFE600] font-black uppercase tracking-[3px] text-[15px] mb-3">
               Notre solution
             </h4>
-            <p className="text-[24px] font-extrabold text-white leading-tight">
+            <p className="text-[22px] font-extrabold text-white leading-tight">
               L’audit prédictif devient <span className="text-[#FFE600]">intelligible</span> grâce aux modèles SHAP & LIME.
             </p>
           </div>
@@ -94,7 +94,7 @@ const Slide3 = () => {
 
       {/* FOOTER */}
       <div className="absolute bottom-0 left-0 w-full px-20 pb-8">
-        <div className="pt-4 border-t border-white/15 flex justify-between items-center text-[11px] font-extrabold uppercase tracking-widest text-white/60">
+        <div className="font-urbanist pt-4 border-t border-white/15 flex justify-between items-center text-[11px] font-extrabold uppercase tracking-widest text-white/60">
           <div>Numéro d’équipe : <span className="text-white">#PFE25-R-474</span></div>
           <div className="text-sm font-black text-white">
             03 <span className="text-[#FFE600]">/</span> 13

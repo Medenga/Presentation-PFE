@@ -8,7 +8,6 @@ const Slide2 = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      // Harmonisation : font-sans et padding vertical pour remonter le contenu
       className="relative w-[1280px] h-[720px] bg-pres-grey text-white flex flex-col px-20 pt-12 pb-28 overflow-hidden font-sans"
     >
       {/* TITLE - Ajusté à 36px et font-extrabold pour correspondre aux autres slides */}
@@ -31,7 +30,7 @@ const Slide2 = () => {
             <p className="text-[20px] text-gray-500 italic">
               &quot;L&apos;Historien&quot;
             </p>
-            <div className="mt-4 text-[16px] text-gray-400 uppercase tracking-widest font-bold">
+            <div className="mt-4 text-[16px] font-urbanist text-gray-400 uppercase tracking-widest font-bold">
               Constat rétrospectif
             </div>
           </div>
@@ -50,7 +49,7 @@ const Slide2 = () => {
             <p className="text-[22px] text-white italic">
               &quot;La Vigie&quot;
             </p>
-            <div className="mt-4 text-[16px] text-ey-yellow font-bold uppercase tracking-widest">
+            <div className="mt-4 text-[16px] font-urbanist text-ey-yellow font-bold uppercase tracking-widest">
               Anticipation proactive
             </div>
           </div>
@@ -76,7 +75,7 @@ const Slide2 = () => {
 
       {/* FOOTER */}
       <div className="absolute bottom-0 left-0 w-full px-20 pb-10">
-        <div className="pt-4 border-t border-white/20 flex justify-between items-center text-[11px] font-extrabold uppercase tracking-widest text-white/70">
+        <div className="font-urbanist pt-4 border-t border-white/20 flex justify-between items-center text-[11px] font-extrabold uppercase tracking-widest text-white/70">
           <div>Numéro d&apos;équipe : <span className="text-white">#PFE25-R-474</span></div>
           <div className="text-sm font-black text-white">
             02 <span className="text-ey-yellow">/</span> 13
