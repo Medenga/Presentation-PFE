@@ -97,7 +97,7 @@ const Slide3 = () => {
         <div className="font-urbanist pt-4 border-t border-white/15 flex justify-between items-center text-[11px] font-extrabold uppercase tracking-widest text-white/60">
           <div>Numéro d’équipe : <span className="text-white">#PFE25-R-474</span></div>
           <div className="text-sm font-black text-white">
-            03 <span className="text-[#FFE600]">/</span> 13
+            03 <span className="text-[#FFE600]">/</span> 14
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const Slide9 = () => {
+const Slide10 = () => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -16,11 +16,16 @@ const Slide9 = () => {
           - object-contain : l'image s'adapte sans être coupée
       */}
       <div className="flex-1 w-full flex items-center justify-center overflow-hidden mb-16">
-        <img
-          src="/src/assets/Slide9.jpg"
-          alt="Slide 9"
+        <video
+          src="/src/assets/pfe_demo.mp4"
           className="w-full h-full object-contain"
-        />
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          Votre navigateur ne supporte pas la lecture de vidéos.
+        </video>
       </div>
 
       {/* FOOTER */}
@@ -28,7 +33,7 @@ const Slide9 = () => {
         <div className="pt-4 border-t border-white/30 flex justify-between items-center text-[11px] font-extrabold uppercase tracking-widest text-white">
           <div>Numéro d&apos;équipe: #PFE25-R-474</div>
           <div className="text-sm font-black">
-            09 <span className="text-ey-yellow">/</span> 13
+            10 <span className="text-ey-yellow">/</span> 14
           </div>
         </div>
       </div>
@@ -36,4 +41,4 @@ const Slide9 = () => {
   );
 };
 
-export default Slide9;
+export default Slide10;

@@ -74,7 +74,7 @@ const Slide4 = () => {
         <div className="font-urbanist pt-4 border-t border-white/30 flex justify-between items-center text-[11px] font-extrabold uppercase tracking-widest text-white">
           <div>Numéro d&apos;équipe: #PFE25-R-474</div>
           <div className="text-sm font-black">
-            04 <span className="text-ey-yellow">/</span> 13
+            04 <span className="text-ey-yellow">/</span> 14
           </div>
         </div>
       </div>
