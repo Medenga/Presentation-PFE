@@ -67,16 +67,16 @@ const Slide3 = () => {
             <h4 className="font-urbanist text-blue-400 font-bold text-[22px] mb-2 uppercase tracking-tight">
               Limite normative
             </h4>
-            <p className="text-[19px] text-gray-300 leading-relaxed font-medium">
+            <p className="text-[19px] text-white leading-relaxed font-medium">
               L’audit constate la conformité <span className="text-white">a posteriori</span>, il ne prédit pas la panne.
             </p>
           </div>
 
           <div className="bg-white/5 border border-white/10 p-7 rounded-[24px]">
-            <h4 className="font-urbanist text-green-400 font-bold text-[22px] mb-2 uppercase tracking-tight">
+            <h4 className="font-urbanist txt-green-400 font-bold text-[22px] mb-2 uppercase tracking-tight">
               Le piège de l’AIOps
             </h4>
-            <p className="text-[19px] text-gray-300 leading-relaxed font-medium">
+            <p className="text-[19px] text-white leading-relaxed font-medium">
               La <span className="text-white">boîte noire</span> mathématique est incompatible avec la preuve d’audit.
             </p>
           </div>
@@ -105,4 +105,4 @@ const Slide3 = () => {
   );
 };
 
-export default Slide3;
+export default Slide3;e
