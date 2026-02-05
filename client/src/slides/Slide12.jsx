@@ -22,7 +22,7 @@ const Slide12 = () => {
     >
       {/* TITLE BLOCK */}
       <div className="mb-5 border-l-4 border-[#FFE600] pl-6">
-        <div className="text-[#FFE600] text-[13px] font-bold tracking-[4px] uppercase mb-1">
+        <div className="font-urbanist text-[#FFE600] text-[13px] font-bold tracking-[4px] uppercase mb-1">
           Roadmap & Méthodologie Opérationnelle
         </div>
         <h1 className="text-[36px] font-bold leading-tight">
@@ -32,7 +32,7 @@ const Slide12 = () => {
 
       {/* BLOC 1: ROADMAP (GANTT STYLE) */}
       <div className="bg-white/[0.03] border border-white/10 rounded-xl p-4 mb-4">
-        <div className="flex items-center gap-2 text-[#FFE600] text-[12px] font-black uppercase tracking-widest mb-3">
+        <div className="font-urbanist flex items-center gap-2 text-[#FFE600] text-[12px] font-black uppercase tracking-widest mb-3">
           <Milestone size={17} /> Chronologie Stratégique
         </div>
         <div className="grid grid-cols-4 gap-3">
@@ -52,7 +52,7 @@ const Slide12 = () => {
         
         {/* BLOC 2: ORGANISATION & OUTILS */}
         <div className="bg-white/[0.03] border border-white/10 rounded-xl p-4 flex flex-col">
-          <div className="flex items-center gap-2 text-[#FFE600] text-[12px] font-black uppercase tracking-widest mb-3">
+          <div className="font-urbanist flex items-center gap-2 text-[#FFE600] text-[12px] font-black uppercase tracking-widest mb-3">
             <Users size={16} /> Organisation & Outils
           </div>
           <div className="space-y-1.5 mb-3">
@@ -68,7 +68,7 @@ const Slide12 = () => {
 
         {/* BLOC 3: RYTHME & MODÈLE */}
         <div className="bg-white/[0.03] border border-white/10 rounded-xl p-4 flex flex-col">
-          <div className="flex items-center gap-2 text-[#FFE600] text-[12px] font-black uppercase tracking-widest mb-3">
+          <div className="font-urbanist flex items-center gap-2 text-[#FFE600] text-[12px] font-black uppercase tracking-widest mb-3">
             <RotateCw size={16} /> Rythme & Modèle
           </div>
           <div className="space-y-1.5 mb-3">
@@ -85,7 +85,7 @@ const Slide12 = () => {
 
         {/* BLOC 4: LIMITES & RECUL */}
         <div className="bg-red-500/5 border border-red-500/10 rounded-xl p-4">
-          <div className="flex items-center gap-2 text-red-500 text-[12px] font-black uppercase tracking-widest mb-3">
+          <div className="font-urbanist flex items-center gap-2 text-red-500 text-[12px] font-black uppercase tracking-widest mb-3">
             <ShieldAlert size={16} /> Limites & Prise de Recul
           </div>
           <div className="space-y-2.5">
@@ -107,7 +107,7 @@ const Slide12 = () => {
 
       {/* FOOTER */}
       <div className="absolute bottom-0 left-0 w-full px-20 pb-10">
-        <div className="pt-4 border-t border-white/30 flex justify-between items-center text-[11px] font-extrabold uppercase tracking-widest text-white">
+        <div className="font-urbanist pt-4 border-t border-white/30 flex justify-between items-center text-[11px] font-extrabold uppercase tracking-widest text-white">
           <div>Numéro d&apos;équipe: #PFE25-R-474</div>
           <div className="text-sm font-black">
             12 <span className="text-ey-yellow">/</span> 13
