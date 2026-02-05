@@ -23,7 +23,7 @@ const ArchBox = ({ title, icon, details, color, bgColor, borderColor, width = "w
     <div className={`p-1.5 rounded-full mb-2 ${color.replace('text-', 'bg-')}/10`}>
       {icon}
     </div>
-    <h3 className={`font-bold text-[11px] uppercase mb-1.5 ${color} tracking-wider`}>{title}</h3>
+    <h3 className={`font-urbanist font-bold text-[11px] uppercase mb-1.5 ${color} tracking-wider`}>{title}</h3>
     {/* Liste des spécificités techniques du nœud */}
     <ul className="space-y-1 w-full">
       {details.map((d, i) => (
@@ -59,8 +59,8 @@ const Slide5 = () => {
       {/* --- HEADER --- */}
       <div className="mb-6 flex justify-between items-end border-b border-white/10 pb-4">
         <div>
-            <div className="text-[#FFE600] text-[10px] font-bold tracking-[4px] uppercase mb-1">Solution proposée</div>
-            <h1 className="text-3xl font-bold">Protocole <span className="text-[#FFE600]">Expérimental</span></h1>
+            <div className="font-urbanist text-[#FFE600] text-[10px] font-bold tracking-[4px] uppercase mb-1">Solution proposée</div>
+            <h1 className="text-3xl font-bold font-sans">Protocole <span className="text-[#FFE600]">Expérimental</span></h1>
         </div>
         <div className="text-right opacity-0 text-xs font-mono">
             Placeholder
@@ -74,7 +74,7 @@ const Slide5 = () => {
         {/* ZONE 1 : ENVIRONNEMENT (INPUT) */}
         {/* Simulation de l'infrastructure e-commerce et de l'injection de chaos */}
         <div className="col-span-2 flex flex-col gap-4 items-center border-r border-white/5 pr-4 h-full justify-center">
-            <span className="text-white text-xs uppercase font-bold mb-4 tracking-widest">Environnement</span>
+            <span className="font-urbanist text-white text-xs uppercase font-bold mb-4 tracking-widest">Environnement</span>
             <ArchBox 
               title="Google Boutique" 
               icon={<CloudLightning size={16} className="text-red-400"/>}
@@ -175,13 +175,13 @@ const Slide5 = () => {
         <div className="col-span-3 flex items-center justify-end pl-4 relative">
              <Line width="w-16" color="bg-green-500/50" />
              <div className="bg-green-500/5 border border-green-500/30 p-4 rounded-xl flex flex-col gap-3 w-52">
-                <div className="flex items-center gap-2 mb-2 border-b border-green-500/20 pb-2">
+                <div className="font-urbanist flex items-center gap-2 mb-2 border-b border-green-500/20 pb-2">
                     <Target size={18} className="text-green-400" />
                     <span className="text-green-400 font-bold text-xs uppercase">Performance</span>
                 </div>
                 
                 {/* KPI 1 : Fiabilité */}
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center font-urbanist">
                     <span className="text-[10px] text-white uppercase font-bold">Qualité de l'Alerte (F1-score)</span>
                     <span className="text-xl font-bold text-white">66%</span>
                 </div>
@@ -190,7 +190,7 @@ const Slide5 = () => {
                 </div>
 
                 {/* KPI 2 : Anticipation */}
-                <div className="flex justify-between items-center mt-1 pt-2 border-t border-white/5">
+                <div className="flex justify-between items-center mt-1 pt-2 border-t border-white/5 font-urbanist">
                     <div className="flex flex-col leading-tight">
                         <span className="text-[10px] text-white uppercase font-bold">Gain de Temps</span>
                         <span className="text-[10px] text-white uppercase font-bold">(Lead Time)</span>
@@ -204,7 +204,7 @@ const Slide5 = () => {
 
       {/* --- FOOTER --- */}
       <div className="absolute bottom-0 left-0 w-full px-20 pb-10">
-        <div className="pt-4 border-t border-white/30 flex justify-between items-center text-[11px] font-extrabold uppercase tracking-widest text-white">
+        <div className="font-urbanist pt-4 border-t border-white/30 flex justify-between items-center text-[11px] font-extrabold uppercase tracking-widest text-white">
           <div>Numéro d&apos;équipe: #PFE25-R-474</div>
           <div className="text-sm font-black">
             05 <span className="text-ey-yellow">/</span> 13

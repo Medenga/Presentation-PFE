@@ -34,7 +34,7 @@ const Slide4 = () => {
       <div className="flex-grow flex flex-col items-center">
         {/* TITRE - Identique à l'original */}
         <div className="text-center mb-10">
-          <div className="inline-flex items-center gap-2 bg-[#FFE600]/10 border border-[#FFE600]/30 text-[#FFE600] px-5 py-2 rounded-full text-[13px] font-black uppercase tracking-[3px] mb-6">
+          <div className="font-urbanist inline-flex items-center gap-2 bg-[#FFE600]/10 border border-[#FFE600]/30 text-[#FFE600] px-5 py-2 rounded-full text-[13px] font-black uppercase tracking-[3px] mb-6">
             <Microscope size={16} />
             Question de recherche
           </div>
@@ -53,11 +53,11 @@ const Slide4 = () => {
             >
               <div className="text-[#FFE600] mb-6 opacity-80">{obj.icon}</div>
               
-              <div className="bg-[#FFE600] px-4 py-1 rounded-md text-black font-black text-[13px] mb-5">
+              <div className="font-urbanist bg-[#FFE600] px-4 py-1 rounded-md text-black font-black text-[13px] mb-5">
                 OBJECTIF {obj.id}
               </div>
 
-              <h3 className="text-[26px] font-bold mb-4 uppercase tracking-tight text-white leading-tight">
+              <h3 className="font-urbanist text-[26px] font-bold mb-4 uppercase tracking-tight text-white leading-tight">
                 {obj.title}
               </h3>
               
@@ -71,7 +71,7 @@ const Slide4 = () => {
 
       {/* FOOTER */}
       <div className="absolute bottom-0 left-0 w-full px-20 pb-10">
-        <div className="pt-4 border-t border-white/30 flex justify-between items-center text-[11px] font-extrabold uppercase tracking-widest text-white">
+        <div className="font-urbanist pt-4 border-t border-white/30 flex justify-between items-center text-[11px] font-extrabold uppercase tracking-widest text-white">
           <div>Numéro d&apos;équipe: #PFE25-R-474</div>
           <div className="text-sm font-black">
             04 <span className="text-ey-yellow">/</span> 13
